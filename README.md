@@ -4,42 +4,46 @@
 
 ### Project Overview
 
+기존 CROCS KOREA 쇼핑몰의 UX 문제를 개선하고, 브랜드 아이덴티티를 반영한 UI로 리뉴얼한 프로젝트
+
+- 장바구니 및 로그인 흐름 단순화
+- 브랜드 컬러 및 제품 비주얼 중심 UI 재설계
+- Firebase 기반 인증 및 장바구니 상태 관리 구현
+
 #### 선정이유
 
-- 사용자 편의성 부족
-- 브랜드 아이덴티티 대비 웹 비주얼 일관성 부족
+- 기존 사이트의 사용자 동선이 복잡하여 구매 전환율 저하 가능성 존재
+- 브랜드 특유의 경쾌한 이미지가 웹 UI에 충분히 반영되지 않음
+- E-commerce의 상태 관리 및 인증 흐름을 직접 설계해보고자 함
 
 #### 프로젝트 기간
 
 2025. 10. 20 - 2025. 12. 01 (6주)
 
-#### 기술 스택
+#### Role
+
+- UI 리디자인 및 퍼블리싱
+- React 기반 컴포넌트 설계
+- Zustand를 활용한 전역 상태 관리
+- Firebase Auth / Firestore 연동
+
+#### Tech Stack
 
 ##### Design
 
 - Figma
 
-##### Language
+##### Frontend
 
 - javaScript
-- css
-
-##### Framework
-
-- React
-- Node.js
-
-##### styling
-
 - scss
+- React
+- Zustand
+- Node.js
 
 ##### Database
 
 - Firebase
-
-##### State Management
-
-- Zustand
 
 ##### Development Tools
 
