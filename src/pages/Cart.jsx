@@ -96,7 +96,7 @@ function Cart() {
             // 지비츠 데이터가 store에 없으면 fetch
             const jibbitzStore = collaboAuthStore.getState();
             const exists = jibbitzStore.jibbitzItems.find(
-                (item) => String(item.id) === String(product.id)
+                (item) => String(item.id) === String(product.id),
             );
 
             if (!exists) {
@@ -152,18 +152,18 @@ function Cart() {
     };
 
     return (
-        <div className="cart-container">
-            <div className="inner">
-                <Title title="Cart" />
+        <div className='cart-container'>
+            <div className='inner'>
+                <Title title='Cart' />
                 <CartProgress />
-                <div className="cart-content">
+                <div className='cart-content'>
                     {/* 왼쪽: 상품 목록 */}
-                    <div className="cart-left">
-                        <div className="product-header">
-                            <div className="select-all">
+                    <div className='cart-left'>
+                        <div className='product-header'>
+                            <div className='select-all'>
                                 <label>
                                     <input
-                                        type="checkbox"
+                                        type='checkbox'
                                         checked={
                                             cartProducts.length > 0 &&
                                             selectedProducts.size === cartProducts.length
@@ -175,83 +175,78 @@ function Cart() {
                                     </span>
                                 </label>
                             </div>
-                            <button className="btn-remove-selected" onClick={handleRemoveSelected}>
+                            <button className='btn-remove-selected' onClick={handleRemoveSelected}>
                                 선택삭제
                             </button>
                         </div>
 
-                        <div className="product-list">
+                        <div className='product-list'>
                             {cartProducts.length === 0 ? (
-                                <div className="empty-cart">
+                                <div className='empty-cart'>
                                     <p>장바구니에 담긴 상품이 없습니다.</p>
                                 </div>
                             ) : (
                                 cartProducts.map((product) => (
                                     <div
                                         key={`${product.id}-${product.size || 'default'}`}
-                                        className="product-item-wrap"
-                                    >
+                                        className='product-item-wrap'>
                                         <input
-                                            type="checkbox"
-                                            className="product-checkbox"
+                                            type='checkbox'
+                                            className='product-checkbox'
                                             checked={selectedProducts.has(product.id)}
                                             onChange={() => handleSelectProduct(product.id)}
                                         />
-                                        <div className="product-item">
+                                        <div className='product-item'>
                                             <div
                                                 key={product.id}
-                                                className="product-image"
+                                                className='product-image'
                                                 onClick={() => {
                                                     console.log('product.link:', product.link);
                                                     handleNavigate(product);
                                                 }} // 링크 이동추가
-                                                style={{ cursor: 'pointer' }}
-                                            >
+                                                style={{ cursor: 'pointer' }}>
                                                 <img src={product.product_img} alt={product.name} />
                                             </div>
 
-                                            <div className="product-info">
-                                                <h3 className="product-name">{product.name}</h3>
+                                            <div className='product-info'>
+                                                <h3 className='product-name'>{product.name}</h3>
                                                 {product.size && (
-                                                    <p className="product-option">
+                                                    <p className='product-option'>
                                                         사이즈: {product.size}
                                                     </p>
                                                 )}
 
-                                                <div className="quantity-control">
+                                                <div className='quantity-control'>
                                                     <button
-                                                        className="quantity-btn"
+                                                        className='quantity-btn'
                                                         onClick={() =>
                                                             handleDecreaseQuantity(product.id)
                                                         }
-                                                        disabled={product.quantity <= 1}
-                                                    >
+                                                        disabled={product.quantity <= 1}>
                                                         -
                                                     </button>
-                                                    <span className="quantity-display">
+                                                    <span className='quantity-display'>
                                                         {product.quantity}
                                                     </span>
                                                     <button
-                                                        className="quantity-btn"
+                                                        className='quantity-btn'
                                                         onClick={() =>
                                                             handleIncreaseQuantity(product.id)
-                                                        }
-                                                    >
+                                                        }>
                                                         +
                                                     </button>
                                                 </div>
                                             </div>
 
-                                            <div className="product-price">
-                                                <span className="price">
+                                            <div className='product-price'>
+                                                <span className='price'>
                                                     {formatPrice(product.price * product.quantity)}
                                                     원
                                                 </span>
                                                 <button
-                                                    className="remove-btn"
+                                                    className='remove-btn'
                                                     onClick={() => handleRemoveProduct(product.id)}
-                                                    title="상품 삭제"
-                                                >
+                                                    title='상품 삭제'>
                                                     ✕
                                                 </button>
                                             </div>
@@ -263,22 +258,21 @@ function Cart() {
                     </div>
 
                     {/* 오른쪽: 주문 요약 */}
-                    <div className="cart-right">
+                    <div className='cart-right'>
                         {/* 가격 요약 */}
-                        <div className="price-summary">
-                            <div className="price-row">
-                                <span className="price-label">주문상품</span>
-                                <span className="price-value">{formatPrice(subtotal)}원</span>
+                        <div className='price-summary'>
+                            <div className='price-row'>
+                                <span className='price-label'>주문상품</span>
+                                <span className='price-value'>{formatPrice(subtotal)}원</span>
                             </div>
                             {cartProducts.length > 0 && (
                                 <>
-                                    <div className="price-row">
-                                        <span className="price-label">배송비</span>
+                                    <div className='price-row'>
+                                        <span className='price-label'>배송비</span>
                                         <span
                                             className={`price-value ${
                                                 shipping === 0 ? 'free-shipping' : ''
-                                            }`}
-                                        >
+                                            }`}>
                                             {shipping === 0
                                                 ? '무료배송'
                                                 : `+${formatPrice(shipping)}원`}
@@ -286,7 +280,7 @@ function Cart() {
                                     </div>
 
                                     {shipping > 0 && (
-                                        <p className="shipping-notice">
+                                        <p className='shipping-notice'>
                                             {formatPrice(freeShippingThreshold)}원 이상 구매 시
                                             무료배송
                                         </p>
@@ -294,17 +288,17 @@ function Cart() {
                                 </>
                             )}
 
-                            <div className="price-row total-row">
-                                <span className="price-label total-label">최종 결제 금액</span>
-                                <span className="price-value total-value">
+                            <div className='price-row total-row'>
+                                <span className='price-label total-label'>최종 결제 금액</span>
+                                <span className='price-value total-value'>
                                     {formatPrice(total)}원
                                 </span>
                             </div>
                         </div>
 
                         {/* 안내문구 */}
-                        <div className="terms-content">
-                            <p className="terms-description">
+                        <div className='terms-content'>
+                            <p className='terms-description'>
                                 장바구니 상품은 30일간 보관됩니다. 장기간 보관을 원하실 경우
                                 위시리스트에 추가해주세요. <br />
                                 교차 및 복수 할인 프로모션 적용 주문 건의 경우 부분 취소 및 반품은
@@ -314,34 +308,31 @@ function Cart() {
 
                         {/* 주문 버튼들 */}
                         {!isOrderComplete ? (
-                            <div className="order-buttons">
+                            <div className='order-buttons'>
                                 <button
-                                    className="btn-order-all"
-                                    onClick={() => handleToOrder('all')}
-                                >
+                                    className='btn-order-all'
+                                    onClick={() => handleToOrder('all')}>
                                     전체상품주문하기
                                 </button>
 
-                                <div className="btn-group">
+                                <div className='btn-group'>
                                     <button
-                                        className="btn-order-selected"
-                                        onClick={() => handleToOrder('selected')}
-                                    >
+                                        className='btn-order-selected'
+                                        onClick={() => handleToOrder('selected')}>
                                         선택상품주문
                                     </button>
 
                                     <button
-                                        className="btn-gift-selected"
-                                        onClick={handleGiftSelected}
-                                    >
+                                        className='btn-gift-selected'
+                                        onClick={handleGiftSelected}>
                                         선택상품선물
                                     </button>
                                 </div>
                             </div>
                         ) : (
-                            <div className="order-complete">
-                                <div className="complete-icon">✓</div>
-                                <p className="complete-text">주문이 완료되었습니다.</p>
+                            <div className='order-complete'>
+                                <div className='complete-icon'>✓</div>
+                                <p className='complete-text'>주문이 완료되었습니다.</p>
                             </div>
                         )}
                     </div>

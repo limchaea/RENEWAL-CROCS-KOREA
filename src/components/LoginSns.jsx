@@ -6,7 +6,7 @@ import LoginNaver from './LoginNaver';
 
 const LoginSns = () => {
     return (
-        <div className="login_sns_wrap">
+        <div className='login_sns_wrap'>
             <LoginKakao />
             <LoginGoogle />
             <LoginNaver />

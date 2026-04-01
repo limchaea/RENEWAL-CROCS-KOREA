@@ -24,79 +24,76 @@ const JibbitzProductInfo = ({ product }) => {
     const decreaseQty = () => setQuantity((q) => (q > 1 ? q - 1 : 1));
 
     return (
-        <div className="product-info__wrap" aria-labelledby="product-title">
-            <div className="product-info">
-                <div className="product-info__title_wrap">
-                    <p className="product-info__subtitle">
+        <div className='product-info__wrap' aria-labelledby='product-title'>
+            <div className='product-info'>
+                <div className='product-info__title_wrap'>
+                    <p className='product-info__subtitle'>
                         {product.title.includes('세트') ? 'Jibbitz pack' : 'Jibbitz single'}
                     </p>
-                    <h2 className="product-info__title">{product.title}</h2>
-                    <div className="product-info__price">
-                        <span className="product-info__price_dc_rate">
+                    <h2 className='product-info__title'>{product.title}</h2>
+                    <div className='product-info__price'>
+                        <span className='product-info__price_dc_rate'>
                             {product?.discountPrice || product?.price}
                         </span>
-                        <span className="product-info__price_breadcrumbs__line"></span>
-                        <span className="product-info__price_sale">
+                        <span className='product-info__price_breadcrumbs__line'></span>
+                        <span className='product-info__price_sale'>
                             {product.discountPrice !== '' ? product.discountPercent : ''}
                         </span>
-                        <span className="product-info__price_breadcrumbs__line"></span>
-                        <span className="product-info__price_cost">
+                        <span className='product-info__price_breadcrumbs__line'></span>
+                        <span className='product-info__price_cost'>
                             {product.discountPrice !== '' ? product?.price : ''}
                         </span>
                     </div>
                 </div>
-                <div className="product-info__snswish_wrap">
-                    <div className="product-sns-wrap"></div>
-                    <div className="product-wish-btn">
+                <div className='product-info__snswish_wrap'>
+                    <div className='product-sns-wrap'></div>
+                    <div className='product-wish-btn'>
                         <p
                             className={`wish-btn ${onHeart ? 'active' : 'normal'}`}
-                            onClick={() => onAddWishList(product)}
-                        >
-                            <img src="/images/icon-love_line.svg" alt="wishIcon" />
+                            onClick={() => onAddWishList(product)}>
+                            <img src='/images/icon-love_line.svg' alt='wishIcon' />
                         </p>
                     </div>
                 </div>
 
-                <div className="product-info_breadcrumbs"></div>
+                <div className='product-info_breadcrumbs'></div>
 
-                <div className="product-info_select">
-                    <div className="product-info__wrap">
-                        <div className="product-info-select_chose-item">
-                            <span className="product-info-select_chose-item-name">
+                <div className='product-info_select'>
+                    <div className='product-info__wrap'>
+                        <div className='product-info-select_chose-item'>
+                            <span className='product-info-select_chose-item-name'>
                                 {product.title}
                             </span>
                         </div>
                     </div>
-                    <div className="product-info-select__count-wrap">
-                        <div className="product-info-select__count">
-                            <div className="product-info-select__count-value-wrap">
-                                <p className="product-info-select__count-value">
+                    <div className='product-info-select__count-wrap'>
+                        <div className='product-info-select__count'>
+                            <div className='product-info-select__count-value-wrap'>
+                                <p className='product-info-select__count-value'>
                                     <span>{quantity}</span>
                                 </p>
                                 {/* 수량 버튼 */}
-                                <div className="select-buy__select__wrap">
+                                <div className='select-buy__select__wrap'>
                                     <button
-                                        type="button"
-                                        className="select-buy__select__count-btn select-buy__select__count-btn--increase"
-                                        onClick={increaseQty}
-                                    >
-                                        <span className="select-buy__select__count-link select-buy__select__count-link--disabled-1">
+                                        type='button'
+                                        className='select-buy__select__count-btn select-buy__select__count-btn--increase'
+                                        onClick={increaseQty}>
+                                        <span className='select-buy__select__count-link select-buy__select__count-link--disabled-1'>
                                             <img
-                                                src="/images/icon-arrow-up_bold-1.svg"
-                                                alt="증가"
+                                                src='/images/icon-arrow-up_bold-1.svg'
+                                                alt='증가'
                                             />
                                         </span>
                                     </button>
                                     <button
-                                        type="button"
-                                        className="select-buy__select__count-btn select-buy__select__count-btn--decrease"
+                                        type='button'
+                                        className='select-buy__select__count-btn select-buy__select__count-btn--decrease'
                                         onClick={decreaseQty}
-                                        disabled={quantity <= 1}
-                                    >
-                                        <span className="select-buy__select__count-link select-buy__select__count-link--disabled-1">
+                                        disabled={quantity <= 1}>
+                                        <span className='select-buy__select__count-link select-buy__select__count-link--disabled-1'>
                                             <img
-                                                src="/images/icon-arrow-down_bold-1.svg"
-                                                alt="감소"
+                                                src='/images/icon-arrow-down_bold-1.svg'
+                                                alt='감소'
                                             />
                                         </span>
                                     </button>
@@ -105,42 +102,39 @@ const JibbitzProductInfo = ({ product }) => {
                         </div>
                     </div>
                 </div>
-                <div className="select-buy__breadcrumbs"></div>
+                <div className='select-buy__breadcrumbs'></div>
                 {/* 총 금액 */}
-                <div className="select-buy__total-wrap">
-                    <div className="select-buy__total-title">
+                <div className='select-buy__total-wrap'>
+                    <div className='select-buy__total-title'>
                         <p>총 상품 금액</p>
                     </div>
-                    <div className="select-buy__total-content">
-                        <div className="select-buy__total-number-wrap">
-                            <p className="total-number-text">수량: {quantity}</p>
+                    <div className='select-buy__total-content'>
+                        <div className='select-buy__total-number-wrap'>
+                            <p className='total-number-text'>수량: {quantity}</p>
                         </div>
-                        <div className="select-buy__total-price-wrap">
-                            <p className="total-price">₩{totalPrice.toLocaleString()}</p>
+                        <div className='select-buy__total-price-wrap'>
+                            <p className='total-price'>₩{totalPrice.toLocaleString()}</p>
                         </div>
                     </div>
                 </div>
-                <div className="select-buy__breadcrumbs" />
+                <div className='select-buy__breadcrumbs' />
                 {/* 구매버튼 */}
-                <div className="select-buy__buy-btns-wrap">
+                <div className='select-buy__buy-btns-wrap'>
                     <p
                         className={`select-buy ${onHeart ? 'active' : 'normal'}`}
-                        onClick={() => onAddWishList(product)}
-                    >
-                        <img src="/images/icon-love_line.svg" alt="wishIcon" />
+                        onClick={() => onAddWishList(product)}>
+                        <img src='/images/icon-love_line.svg' alt='wishIcon' />
                     </p>
                     <button
-                        className="select-buy__buy-btn select-buy__buy-btn--add-cart"
-                        type="button"
-                        onClick={() => onProductAddCart(product, count)}
-                    >
+                        className='select-buy__buy-btn select-buy__buy-btn--add-cart'
+                        type='button'
+                        onClick={() => onProductAddCart(product, count)}>
                         장바구니
                     </button>
                     <WishAddPopup />
                     <button
-                        className="select-buy__buy-btn select-buy__buy-btn--buy-now"
-                        type="button"
-                    >
+                        className='select-buy__buy-btn select-buy__buy-btn--buy-now'
+                        type='button'>
                         구매하기
                     </button>
                 </div>

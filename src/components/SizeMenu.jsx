@@ -18,11 +18,11 @@ export default function SizeMenu({ sizes = [], selectedSize, onSizeSelect }) {
     };
 
     return (
-        <div className="size-menu">
-            <div className="size-menu__wrap">
-                <div className="size-menu__wrap--title_wrap title--wrap">
-                    <h3 className="size-menu__wrap--title title">사이즈</h3>
-                    <button className="filtering_menu_toggle" onClick={handleToggle}>
+        <div className='size-menu'>
+            <div className='size-menu__wrap'>
+                <div className='size-menu__wrap--title_wrap title--wrap'>
+                    <h3 className='size-menu__wrap--title title'>사이즈</h3>
+                    <button className='filtering_menu_toggle' onClick={handleToggle}>
                         <img
                             src={
                                 isOpen
@@ -34,15 +34,14 @@ export default function SizeMenu({ sizes = [], selectedSize, onSizeSelect }) {
                     </button>
                 </div>
                 {isOpen && (
-                    <ul className="size-menu__wrap size-menu__wrap--size">
+                    <ul className='size-menu__wrap size-menu__wrap--size'>
                         {sizes.map((size) => (
-                            <li key={size} className="size-menu__item">
+                            <li key={size} className='size-menu__item'>
                                 <button
                                     className={`size-menu__link btn-menu-style ${
                                         selectedSize === size ? 'active' : ''
                                     }`}
-                                    onClick={(e) => handleClick(size, e)}
-                                >
+                                    onClick={(e) => handleClick(size, e)}>
                                     {size}
                                 </button>
                             </li>

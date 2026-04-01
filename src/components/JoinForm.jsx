@@ -150,51 +150,51 @@ const JoinForm = () => {
 
     //화면에 뿌려질 내용
     return (
-        <div className="join_form_wrap">
-            <form id="join_form_id" onSubmit={handleSubmit}>
-                <div className="phone_admit">
+        <div className='join_form_wrap'>
+            <form id='join_form_id' onSubmit={handleSubmit}>
+                <div className='phone_admit'>
                     <p>이름</p>
                     <input
-                        type="text"
-                        name="name"
-                        placeholder="name"
+                        type='text'
+                        name='name'
+                        placeholder='name'
                         onChange={handleChange}
-                        className="admit_input"
+                        className='admit_input'
                     />
                     <p>전화번호</p>
                     <input
-                        type="tel"
-                        inputmode="numeric"
-                        pattern="[0-9]*"
-                        name="phone"
+                        type='tel'
+                        inputmode='numeric'
+                        pattern='[0-9]*'
+                        name='phone'
                         placeholder="'-'빼고 숫자만 입력해주세요"
                         onChange={handleChange}
-                        className="admit_input"
+                        className='admit_input'
                     />
                 </div>
-                <div className="form_line"></div>
-                <div className="required">
-                    <p className="required_title">
+                <div className='form_line'></div>
+                <div className='required'>
+                    <p className='required_title'>
                         필수정보<span>*</span>
                     </p>
                     <input
-                        type="email"
-                        name="ID"
+                        type='email'
+                        name='ID'
                         required
-                        placeholder="ID"
+                        placeholder='ID'
                         onChange={handleChange}
-                        className="required_input"
+                        className='required_input'
                     />
-                    <p className="required_content">영문/숫자</p>
+                    <p className='required_content'>영문/숫자</p>
                     <input
-                        type="password"
-                        name="password"
-                        placeholder="PW"
+                        type='password'
+                        name='password'
+                        placeholder='PW'
                         onChange={(e) => {
                             handlePasswordChange(e);
                             setFormData((prev) => ({ ...prev, password: e.target.value }));
                         }}
-                        className="required_input"
+                        className='required_input'
                     />
                     {passwordValid !== null && (
                         <p className={`password-message ${passwordValid ? 'valid' : 'invalid'}`}>
@@ -203,13 +203,13 @@ const JoinForm = () => {
                                 : '✗ 사용할 수 없는 비밀번호입니다.'}
                         </p>
                     )}
-                    <p className="required_content">영문소문자/숫자, 6-16자</p>
+                    <p className='required_content'>영문소문자/숫자, 6-16자</p>
                     <input
-                        type="password"
-                        name="passwordConfirm"
-                        placeholder="PW Check"
+                        type='password'
+                        name='passwordConfirm'
+                        placeholder='PW Check'
                         onChange={handlePasswordConfirmChange}
-                        className="required_input"
+                        className='required_input'
                     />
                     {passwordMatch !== null && (
                         <p className={`password-message ${passwordMatch ? 'valid' : 'invalid'}`}>
@@ -218,37 +218,36 @@ const JoinForm = () => {
                                 : '✗ 비밀번호가 일치하지 않습니다.'}
                         </p>
                     )}
-                    <p className="required_content">영문소문자/숫자, 6-16자</p>
-                    <div className="email-input-group">
+                    <p className='required_content'>영문소문자/숫자, 6-16자</p>
+                    <div className='email-input-group'>
                         <input
-                            type="text"
-                            name="email"
-                            placeholder=""
+                            type='text'
+                            name='email'
+                            placeholder=''
                             onChange={(e) => setEmailLocal(e.target.value)}
-                            className="required_input"
+                            className='required_input'
                         />
-                        <span className="email-separator">@</span>
+                        <span className='email-separator'>@</span>
                         {emailDomain === '직접입력' ? (
                             <input
-                                type="text"
-                                placeholder=""
+                                type='text'
+                                placeholder=''
                                 value={customEmailDomain}
                                 onChange={(e) => setCustomEmailDomain(e.target.value)}
-                                className="required_input"
+                                className='required_input'
                             />
                         ) : (
                             <input
-                                type="text"
-                                className="required_input email-domain"
+                                type='text'
+                                className='required_input email-domain'
                                 value={emailDomain}
                                 readOnly
                             />
                         )}
                         <select
-                            className="form-select email-select"
+                            className='form-select email-select'
                             value={emailDomain}
-                            onChange={(e) => setEmailDomain(e.target.value)}
-                        >
+                            onChange={(e) => setEmailDomain(e.target.value)}>
                             {emailDomains.map((domain) => (
                                 <option key={domain} value={domain}>
                                     {domain}
@@ -257,26 +256,26 @@ const JoinForm = () => {
                         </select>
                     </div>
                 </div>
-                <div className="add_info">
+                <div className='add_info'>
                     <p>생년월일</p>
-                    <input type="date" name="birthday" onChange={handleChange} />
+                    <input type='date' name='birthday' onChange={handleChange} />
                     <p>성별</p>
-                    <div className="gender_wrap">
-                        <label className="radio">
-                            <input type="radio" name="gender" onChange={handleChange} />
-                            <span className="radio_custom"></span>
+                    <div className='gender_wrap'>
+                        <label className='radio'>
+                            <input type='radio' name='gender' onChange={handleChange} />
+                            <span className='radio_custom'></span>
                             남자
                         </label>
-                        <label className="radio">
-                            <input type="radio" name="gender" onChange={handleChange} />
-                            <span className="radio_custom"></span>
+                        <label className='radio'>
+                            <input type='radio' name='gender' onChange={handleChange} />
+                            <span className='radio_custom'></span>
                             여자
                         </label>
                     </div>
                 </div>
             </form>
             <Policy agreeTerms={agreeTerms} setAgreeTerms={setAgreeTerms} />
-            <button type="submit" form="join_form_id" className="join_btn">
+            <button type='submit' form='join_form_id' className='join_btn'>
                 Join
             </button>
         </div>

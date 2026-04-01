@@ -1,24 +1,57 @@
-@use "../../App.scss" as g;
+@use '../../App.scss' as g;
 
 .orderhistory_page {
-  .inner {
-    .title_wrap {
-      width: 100%;
-      margin-bottom: 5rem;
-      .section_title {
-        text-align: center;
-      }
-    }
-    .user_btn_wrap {
-      .user_home_btn {
-        padding: 0 !important;
-        background: g.$mainColor;
-        color: g.$subColor;
-        &:hover {
-          background: g.$subColor;
-          color: g.$mainColor;
+    .inner {
+        .title_wrap {
+            width: 100%;
+            margin-bottom: 5rem;
+            .section_title {
+                text-align: center;
+            }
         }
-      }
+
+        .empty_orders {
+            width: 100%;
+            height: 24rem;
+            position: relative;
+            > p {
+                padding: 1rem 0;
+            }
+            .empty_bottom {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                .img_box {
+                    width: 10rem;
+                    height: 10rem;
+                    background-image: url(../../assets/images/crocs_page.svg);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                > button {
+                    width: fit-content;
+                    &:hover {
+                        color: g.$mainColor;
+                    }
+                }
+            }
+        }
+        .user_btn_wrap {
+            .user_home_btn {
+                padding: 0 !important;
+                background: g.$mainColor;
+                color: g.$subColor;
+                &:hover {
+                    background: g.$subColor;
+                    color: g.$mainColor;
+                }
+            }
+        }
     }
-  }
 }

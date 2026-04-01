@@ -7,7 +7,7 @@ import './scss/Footer.scss';
 const Footer = ({ onOpenCS }) => {
     return (
         <footer>
-            <div className="footer_top">
+            <div className='footer_top'>
                 <FooterTitle />
                 <FooterContents />
             </div>

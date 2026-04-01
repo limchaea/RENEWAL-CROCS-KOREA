@@ -8,7 +8,7 @@ const gnbMenus = [
 
 const GnbLeft = () => {
     return (
-        <ul className="gnb_left">
+        <ul className='gnb_left'>
             {gnbMenus.map((menu) => (
                 <li key={menu.key} className={menu.key}>
                     <Link to={`/${menu.key}`}>{menu.label}</Link>

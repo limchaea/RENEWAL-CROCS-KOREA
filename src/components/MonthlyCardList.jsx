@@ -1,7 +1,8 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
-const MonthlyCardList = () => {
+const MonthlyCardList = ({ setIsCardHover, swiperRef }) => {
     const navigate = useNavigate();
 
     const monthlyCards = [
@@ -68,50 +69,57 @@ const MonthlyCardList = () => {
     ];
 
     const handleCardClick = (productId) => {
-        // console.log(' 클릭한 제품 ID:', productId);
-        // console.log(' ID 타입:', typeof productId);
         navigate(`/product/${productId}`);
     };
 
     return (
-        <ul className="monthly_card_list">
-            {monthlyCards.map((card) => {
-                const productId = card.item.id; // 이미 객체에 id가 있음
+        <div className="monthly_card_list">
+            <Swiper
+                slidesPerView={3.2}
+                spaceBetween={280}
+                loop={true}
+                grabCursor={false}
+                className="mySwiper monthly_card_swiper"
+                simulateTouch={true}
+                touchStartPreventDefault={false}
+                onSwiper={(swiper) => {
+                    swiperRef.current = swiper;
+                }}>
+                {monthlyCards.map((card) => {
+                    const productId = card.item.id; // 이미 객체에 id가 있음
 
-                return (
-                    <li key={card.id}>
-                        <div className="monthly_card" onClick={() => handleCardClick(productId)}>
-                            <div className="card_img">
-                                <img className="main_img" src={card.mainImg} alt={card.dec} />
-                                <img
-                                    className={`a_img a_img_${card.id}`}
-                                    src={card.aImg}
-                                    alt={card.dec}
-                                />
+                    return (
+                        <SwiperSlide
+                            key={card.id}
+                            onMouseEnter={() => setIsCardHover(true)}
+                            onMouseLeave={() => setIsCardHover(false)}>
+                            <div className="monthly_card" onClick={() => handleCardClick(productId)}>
+                                <div className="card_img">
+                                    <img className="main_img" src={card.mainImg} alt={card.dec} />
+                                    <img className={`a_img a_img_${card.id}`} src={card.aImg} alt={card.dec} />
 
-                                <div className="item_card">
-                                    <div className={`item_box item_box_${card.id}`}>
-                                        <div className="img_box">
-                                            <img src={card.itemImg} alt={card.item.product} />
-                                        </div>
-                                        <div className="text_box">
-                                            <p className="title">{card.item.product}</p>
-                                            <p className="dc_wrap">
-                                                <strong>{card.item.dc}</strong>
-                                                <span>{card.item.dcPrice}</span>
-                                            </p>
-                                            <p className={card.item.dc ? 'price_d' : 'price'}>
-                                                {card.item.price}
-                                            </p>
+                                    <div className="item_card">
+                                        <div className={`item_box item_box_${card.id}`}>
+                                            <div className="img_box">
+                                                <img src={card.itemImg} alt={card.item.product} />
+                                            </div>
+                                            <div className="text_box">
+                                                <p className="title">{card.item.product}</p>
+                                                <p className="dc_wrap">
+                                                    <strong>{card.item.dc}</strong>
+                                                    <span>{card.item.dcPrice}</span>
+                                                </p>
+                                                <p className={card.item.dc ? 'price_d' : 'price'}>{card.item.price}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                );
-            })}
-        </ul>
+                        </SwiperSlide>
+                    );
+                })}
+            </Swiper>
+        </div>
     );
 };
 

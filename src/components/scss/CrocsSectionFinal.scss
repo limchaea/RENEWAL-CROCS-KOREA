@@ -122,7 +122,9 @@
         height: 700px;
         bottom: -200px;
         left: -100px;
-        animation: blobMove1 25s ease-in-out infinite alternate, blobRotate 40s linear infinite,
+        animation:
+            blobMove1 25s ease-in-out infinite alternate,
+            blobRotate 40s linear infinite,
             blobScale1 15s ease-in-out infinite alternate;
     }
 
@@ -131,8 +133,10 @@
         height: 550px;
         bottom: -100px;
         left: 250px;
-        animation: blobMove2 20s ease-in-out infinite alternate,
-            blobRotate2 35s linear infinite reverse, blobScale2 12s ease-in-out infinite alternate;
+        animation:
+            blobMove2 20s ease-in-out infinite alternate,
+            blobRotate2 35s linear infinite reverse,
+            blobScale2 12s ease-in-out infinite alternate;
         animation-delay: -5s;
     }
 
@@ -141,7 +145,9 @@
         height: 650px;
         top: -150px;
         right: -50px;
-        animation: blobMove3 22s ease-in-out infinite alternate, blobRotate 45s linear infinite,
+        animation:
+            blobMove3 22s ease-in-out infinite alternate,
+            blobRotate 45s linear infinite,
             blobScale3 18s ease-in-out infinite alternate;
         animation-delay: -10s;
     }
@@ -151,8 +157,10 @@
         height: 500px;
         top: -50px;
         right: 300px;
-        animation: blobMove4 18s ease-in-out infinite alternate,
-            blobRotate2 30s linear infinite reverse, blobScale4 14s ease-in-out infinite alternate;
+        animation:
+            blobMove4 18s ease-in-out infinite alternate,
+            blobRotate2 30s linear infinite reverse,
+            blobScale4 14s ease-in-out infinite alternate;
         animation-delay: -3s;
     }
 }
@@ -170,7 +178,8 @@
     filter: none !important;
 
     // blob 크기와 동일: 700px, 550px, 650px, 500px (반지름이므로 그대로 사용)
-    -webkit-mask-image: radial-gradient(
+    -webkit-mask-image:
+        radial-gradient(
             circle 700px at var(--blob1-x, -100px) var(--blob1-y, calc(100% + 200px)),
             black 48%,
             transparent 52%
@@ -192,7 +201,8 @@
         );
     -webkit-mask-composite: source-over;
 
-    mask-image: radial-gradient(
+    mask-image:
+        radial-gradient(
             circle 700px at var(--blob1-x, -100px) var(--blob1-y, calc(100% + 200px)),
             black 48%,
             transparent 52%

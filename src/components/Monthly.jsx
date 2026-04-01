@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import MonthlyLeft from './MonthlyLeft';
 import MonthlyRight from './MonthlyRight';
 import ButtonWrap from './ButtonWrap';
@@ -11,12 +11,16 @@ const Monthly = () => {
         setIsActive(true); // 클릭하면 오른쪽 패널 active
     };
 
+    const closeSlide = () => {
+        setIsActive(false);
+    };
+
     return (
         <section className="monthly_wrap">
             <div className="inner">
                 <MonthlyLeft />
                 <ButtonWrap onClick={toggleSlide} btnText="here!" isActive={isActive} />
-                <MonthlyRight isActive={isActive} />
+                <MonthlyRight isActive={isActive} onClose={closeSlide} />
             </div>
         </section>
     );

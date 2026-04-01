@@ -16,7 +16,7 @@ import React from 'react';
 
 const ButtonWrap = ({ btnText, onClick, isActive }) => {
     return (
-        <div className="btn_wrap">
+        <div className='btn_wrap'>
             <button className={`monthly_btn ${isActive ? 'slide_exit' : ''}`} onClick={onClick}>
                 <p>{btnText}</p>
             </button>

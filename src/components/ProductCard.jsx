@@ -13,8 +13,8 @@ const ProductCardSwiper = ({ images }) => {
     const imgList = Array.isArray(images)
         ? images
         : images
-        ? [images] // 문자열 또는 객체라도 배열로 변환됨
-        : [];
+          ? [images] // 문자열 또는 객체라도 배열로 변환됨
+          : [];
 
     useEffect(() => {
         if (!imgList.length) return;
@@ -31,34 +31,34 @@ const ProductCardSwiper = ({ images }) => {
     }, [imgList]);
 
     return (
-        <div className="product-card__img_wrap swiper" ref={swiperRef}>
-            <div className="swiper-wrapper">
+        <div className='product-card__img_wrap swiper' ref={swiperRef}>
+            <div className='swiper-wrapper'>
                 {imgList.map((img, i) => (
-                    <div className="swiper-slide" key={i}>
+                    <div className='swiper-slide' key={i}>
                         <img
                             src={typeof img === 'string' ? img : img.src}
                             alt={`상품 이미지 ${i + 1}`}
-                            className="product-card__img"
+                            className='product-card__img'
                         />
                     </div>
                 ))}
             </div>
             <div
-                className="swiper-button-prev product-card__arrow_left"
+                className='swiper-button-prev product-card__arrow_left'
                 onClick={(e) => e.stopPropagation()}
             />
             <div
-                className="swiper-button-next product-card__arrow_right"
+                className='swiper-button-next product-card__arrow_right'
                 onClick={(e) => e.stopPropagation()}
             />
-            <div className="swiper-pagination product-card__pagination" />
+            <div className='swiper-pagination product-card__pagination' />
         </div>
     );
 };
 
 // ---------- 상품명 ----------
 const ProductName = ({ name }) => (
-    <div className="product-card__name--wrap">
+    <div className='product-card__name--wrap'>
         <p style={{ whiteSpace: 'pre-line' }}>{name}</p>
     </div>
 );
@@ -70,19 +70,19 @@ const ProductPrice = ({ prices }) => {
     const hasDiscount = discountPrice != null;
 
     return (
-        <div className="product-card__price_wrap">
+        <div className='product-card__price_wrap'>
             {hasDiscount ? (
                 <>
-                    <div className="discount-price">
+                    <div className='discount-price'>
                         {discountPrice}
                         {discountRate && ` (${discountRate} 할인)`}
                     </div>
-                    <div className="original-price" style={{ textDecoration: 'line-through' }}>
+                    <div className='original-price' style={{ textDecoration: 'line-through' }}>
                         {originalPrice}
                     </div>
                 </>
             ) : (
-                <div className="original-price">{originalPrice}</div>
+                <div className='original-price'>{originalPrice}</div>
             )}
         </div>
     );
@@ -173,7 +173,7 @@ const ProductPrice = ({ prices }) => {
 
 // ---------- 상품 카드 ----------
 const ProductCard = ({ product, onClick, onSizeSelect }) => (
-    <li className="product-card" onClick={onClick}>
+    <li className='product-card' onClick={onClick}>
         <ProductCardSwiper images={product.product_img || []} />
         <ProductName name={product.product} />
         <ProductPrice prices={product.prices} />

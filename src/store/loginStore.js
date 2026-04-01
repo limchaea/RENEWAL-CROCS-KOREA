@@ -39,7 +39,7 @@ export const loginAuthStore = create((set, get) => ({
 
                 // 모든 회원에게 기본 쿠폰이 없는 경우 자동 발급
                 const hasWelcomeCoupon = userData.coupons?.some((coupon) =>
-                    coupon.id?.startsWith('WELCOME_CROCS_')
+                    coupon.id?.startsWith('WELCOME_CROCS_'),
                 );
                 if (!hasWelcomeCoupon) {
                     console.log('회원에게 크록스 코리아 웰컴 쿠폰 자동 발급');
@@ -72,7 +72,7 @@ export const loginAuthStore = create((set, get) => ({
 
                 // 크록스 클럽 회원이지만 클럽 쿠폰이 없는 경우 자동 발급
                 const hasClubCoupon = userData.coupons?.some((coupon) =>
-                    coupon.id?.startsWith('CLUB_WELCOME_')
+                    coupon.id?.startsWith('CLUB_WELCOME_'),
                 );
                 if (userData.isClubMember && !hasClubCoupon) {
                     console.log('클럽 회원에게 웰컴 쿠폰 자동 발급');
@@ -218,7 +218,7 @@ export const loginAuthStore = create((set, get) => ({
 
                 // 모든 회원에게 기본 쿠폰이 없는 경우 자동 발급
                 const hasWelcomeCoupon = userData.coupons?.some((coupon) =>
-                    coupon.id?.startsWith('WELCOME_CROCS_')
+                    coupon.id?.startsWith('WELCOME_CROCS_'),
                 );
                 if (!hasWelcomeCoupon) {
                     console.log('회원에게 크록스 코리아 웰컴 쿠폰 자동 발급');
@@ -251,7 +251,7 @@ export const loginAuthStore = create((set, get) => ({
 
                 // 크록스 클럽 회원이지만 클럽 쿠폰이 없는 경우 자동 발급
                 const hasClubCoupon = userData.coupons?.some((coupon) =>
-                    coupon.id?.startsWith('CLUB_WELCOME_')
+                    coupon.id?.startsWith('CLUB_WELCOME_'),
                 );
                 if (userData.isClubMember && !hasClubCoupon) {
                     console.log('클럽 회원에게 웰컴 쿠폰 자동 발급');
@@ -338,7 +338,7 @@ export const loginAuthStore = create((set, get) => ({
 
                 // 모든 회원에게 기본 쿠폰이 없는 경우 자동 발급
                 const hasWelcomeCoupon = userData.coupons?.some((coupon) =>
-                    coupon.id?.startsWith('WELCOME_CROCS_')
+                    coupon.id?.startsWith('WELCOME_CROCS_'),
                 );
                 if (!hasWelcomeCoupon) {
                     console.log('회원에게 크록스 코리아 웰컴 쿠폰 자동 발급');
@@ -371,7 +371,7 @@ export const loginAuthStore = create((set, get) => ({
 
                 // 크록스 클럽 회원이지만 클럽 쿠폰이 없는 경우 자동 발급
                 const hasClubCoupon = userData.coupons?.some((coupon) =>
-                    coupon.id?.startsWith('CLUB_WELCOME_')
+                    coupon.id?.startsWith('CLUB_WELCOME_'),
                 );
                 if (userData.isClubMember && !hasClubCoupon) {
                     console.log('클럽 회원에게 웰컴 쿠폰 자동 발급');
@@ -469,7 +469,7 @@ export const loginAuthStore = create((set, get) => ({
 
                 // 모든 회원에게 기본 쿠폰이 없는 경우 자동 발급
                 const hasWelcomeCoupon = userData.coupons?.some((coupon) =>
-                    coupon.id?.startsWith('WELCOME_CROCS_')
+                    coupon.id?.startsWith('WELCOME_CROCS_'),
                 );
                 if (!hasWelcomeCoupon) {
                     console.log('회원에게 크록스 코리아 웰컴 쿠폰 자동 발급');
@@ -502,7 +502,7 @@ export const loginAuthStore = create((set, get) => ({
 
                 // 크록스 클럽 회원이지만 클럽 쿠폰이 없는 경우 자동 발급
                 const hasClubCoupon = userData.coupons?.some((coupon) =>
-                    coupon.id?.startsWith('CLUB_WELCOME_')
+                    coupon.id?.startsWith('CLUB_WELCOME_'),
                 );
                 if (userData.isClubMember && !hasClubCoupon) {
                     console.log('클럽 회원에게 웰컴 쿠폰 자동 발급');
@@ -582,7 +582,7 @@ export const loginAuthStore = create((set, get) => ({
     },
 
     // 로그아웃
-    logout: async (navigate) => {
+    onLogout: async (navigate) => {
         try {
             const { user } = get();
 

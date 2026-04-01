@@ -126,7 +126,7 @@ const ProductListPage = () => {
         filteredItems = filteredItems.filter(
             (item) =>
                 item.product.toLowerCase().includes(lower) ||
-                item.tags?.some((tag) => tag.toLowerCase().includes(lower))
+                item.tags?.some((tag) => tag.toLowerCase().includes(lower)),
         );
     }
 
@@ -150,7 +150,7 @@ const ProductListPage = () => {
     if (selectedSize) {
         const sizeNum = Number(selectedSize);
         filteredItems = filteredItems.filter(
-            (item) => Array.isArray(item.sizes) && item.sizes.includes(sizeNum)
+            (item) => Array.isArray(item.sizes) && item.sizes.includes(sizeNum),
         );
     }
     // if (selectedSize) {
@@ -198,10 +198,9 @@ const ProductListPage = () => {
             <button
                 key={i}
                 className={currentPage === i ? 'active' : ''}
-                onClick={() => handleGoPage(i)}
-            >
+                onClick={() => handleGoPage(i)}>
                 {i}
-            </button>
+            </button>,
         );
     }
 
@@ -211,8 +210,8 @@ const ProductListPage = () => {
     const subCategoryList = [
         ...new Set(
             filteredItems.flatMap(
-                (item) => item.subcategory?.split(',')?.map((sc) => sc.trim().toLowerCase()) || []
-            )
+                (item) => item.subcategory?.split(',')?.map((sc) => sc.trim().toLowerCase()) || [],
+            ),
         ),
     ];
 
@@ -223,28 +222,27 @@ const ProductListPage = () => {
     const mainSubcategory = subcategory || (mainItem?.subcategory?.split(',')[0] ?? null);
 
     return (
-        <div className="sub_page">
-            <div className="inner">
-                <div className="jibbitz_list_wrap">
-                    <div className="product_list_page">
+        <div className='sub_page'>
+            <div className='inner'>
+                <div className='jibbitz_list_wrap'>
+                    <div className='product_list_page'>
                         <Title title={displayCategory} />
 
                         {/* 검색결과 */}
                         {searchWord && (
-                            <div className="search_info_wrap">
-                                <div className="search_info">
+                            <div className='search_info_wrap'>
+                                <div className='search_info'>
                                     {`" ${searchWord} " 검색 결과 : `}
                                     <p>
                                         <strong>{filteredItems.length}</strong>개
                                     </p>
                                 </div>
                                 <button
-                                    className="clear_search_info_btn"
+                                    className='clear_search_info_btn'
                                     onClick={() => {
                                         setSearchWord('');
                                         navigate(isAllPage ? '/all' : `/${cate}`);
-                                    }}
-                                >
+                                    }}>
                                     ×
                                 </button>
                             </div>
@@ -252,23 +250,22 @@ const ProductListPage = () => {
 
                         {/* 서브 메뉴 (Jibbitz 스타일 유지) */}
                         {currentMenu?.submenu_list?.length > 0 && !searchWord && (
-                            <div className="sub_menu_wrap">
+                            <div className='sub_menu_wrap'>
                                 {currentMenu.submenu_list.map((sub) => (
                                     <div
                                         key={sub.key}
                                         className={`btn_menu_item ${
                                             subcategory === sub.key ? 'active' : ''
                                         }`}
-                                        onClick={() => navigate(`/${cate}/${sub.key}`)}
-                                    >
-                                        <button className="sub_menu_btn">{sub.label}</button>
+                                        onClick={() => navigate(`/${cate}/${sub.key}`)}>
+                                        <button className='sub_menu_btn'>{sub.label}</button>
                                     </div>
                                 ))}
                             </div>
                         )}
 
-                        <div className="product_list_wrap">
-                            <div className="list_left">
+                        <div className='product_list_wrap'>
+                            <div className='list_left'>
                                 <LeftNavigation
                                     category={mainCategory}
                                     subcategory={mainSubcategory}
@@ -278,9 +275,9 @@ const ProductListPage = () => {
                                 />
                             </div>
 
-                            <div className="list_right">
+                            <div className='list_right'>
                                 {currentItems.length > 0 ? (
-                                    <ul className="product-card__item_list">
+                                    <ul className='product-card__item_list'>
                                         {currentItems.map((p) => (
                                             <ProductCard
                                                 key={p.id}
@@ -309,7 +306,7 @@ const ProductListPage = () => {
                                         ))}
                                     </ul>
                                 ) : (
-                                    <div className="empty_state">
+                                    <div className='empty_state'>
                                         <p>
                                             {searchWord
                                                 ? `"${searchWord}"에 대한 검색 결과가 없습니다.`
@@ -324,7 +321,7 @@ const ProductListPage = () => {
 
                 {/* 페이징 */}
                 {totalPage > 1 && (
-                    <div className="page_pager">
+                    <div className='page_pager'>
                         <button onClick={() => handleGoPage(currentPage - 1)}>이전</button>
                         {pagerButton}
                         <button onClick={() => handleGoPage(currentPage + 1)}>다음</button>

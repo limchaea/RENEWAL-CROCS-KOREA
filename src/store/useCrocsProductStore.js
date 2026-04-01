@@ -98,7 +98,7 @@ export const useCrocsProductStore = create(
                 //  2. 자동 태그 키워드 중 제품명에 등장하면 추가
                 AUTO_TAG_KEYWORDS.forEach((keyword) => {
                     const hasKeywordItem = crocsItems.some((item) =>
-                        item.product.includes(keyword)
+                        item.product.includes(keyword),
                     );
                     if (hasKeywordItem) hashtagSet.add(keyword);
                 });
@@ -160,10 +160,10 @@ export const useCrocsProductStore = create(
                                     .map((tag) =>
                                         tag.includes('_')
                                             ? tag.split('_').map((p) => map[p] || p)
-                                            : map[tag] || tag
+                                            : map[tag] || tag,
                                     )
                                     .flat()
-                                    .filter(Boolean)
+                                    .filter(Boolean),
                             ),
                         ];
 
@@ -219,7 +219,7 @@ export const useCrocsProductStore = create(
                 return crocsItems.filter(
                     (item) =>
                         item.product.toLowerCase().includes(keyword) ||
-                        item.tags.some((tag) => tag.toLowerCase().includes(keyword))
+                        item.tags.some((tag) => tag.toLowerCase().includes(keyword)),
                 );
             },
 
@@ -320,6 +320,6 @@ export const useCrocsProductStore = create(
                 }
                 return persistedState;
             },
-        }
-    )
+        },
+    ),
 );

@@ -14,9 +14,9 @@ const LoginKakao = () => {
         navigate('/userinfo');
     };
     return (
-        <div className="kakao_wrap">
-            <button className="kakao" onClick={handleKakaoLogin}>
-                <img src="/images/icon_kakao.svg" alt="icon_kakao" />
+        <div className='kakao_wrap'>
+            <button className='kakao' onClick={handleKakaoLogin}>
+                <img src='/images/icon_kakao.svg' alt='icon_kakao' />
             </button>
         </div>
     );

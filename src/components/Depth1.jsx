@@ -13,15 +13,14 @@ const Depth1 = ({ setDepthOpen }) => {
 
     return (
         <div
-            className="depth_wrap"
+            className='depth_wrap'
             onMouseEnter={() => setDepthOpen(true)}
-            onMouseLeave={() => setDepthOpen(false)}
-        >
-            <div className="depth1">
-                <div className="depth1_left">
+            onMouseLeave={() => setDepthOpen(false)}>
+            <div className='depth1'>
+                <div className='depth1_left'>
                     <DepthmenuList activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
                 </div>
-                <div className="depth1_right">
+                <div className='depth1_right'>
                     <SubmenuList
                         mainmenu={currentMenu}
                         submenus={currentMenu?.submenu_list}

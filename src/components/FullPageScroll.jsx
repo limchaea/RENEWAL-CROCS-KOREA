@@ -13,7 +13,7 @@ const FullPageScroll = ({ children, onSectionChange }) => {
         if (!containerRef.current) return;
 
         const sec = Array.from(containerRef.current.children).filter(
-            (el) => el.tagName.toLowerCase() === 'section' || el.tagName.toLowerCase() === 'footer'
+            (el) => el.tagName.toLowerCase() === 'section' || el.tagName.toLowerCase() === 'footer',
         );
         setSections(sec);
     }, []); //  children 의존 X
@@ -120,7 +120,7 @@ const FullPageScroll = ({ children, onSectionChange }) => {
     }, [sections.length]); //  currentIndex 의존 X
 
     return (
-        <div className="fullpage-container" ref={containerRef}>
+        <div className='fullpage-container' ref={containerRef}>
             {children}
         </div>
     );

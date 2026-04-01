@@ -1,123 +1,123 @@
-@use "../../App.scss" as g;
+@use '../../App.scss' as g;
 
 .chat-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  padding-bottom: 80px;
-
-  .chat-header {
-    @include g.flex();
-    margin-bottom: 30px;
-    justify-content: center;
-  }
-
-  .chat-content {
+    width: 100%;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    padding: 10px;
+    padding-bottom: 80px;
 
-    /* 왼쪽 안내 */
-    .chat-left {
-      width: 35%;
-      padding: 20px;
-      background: #f8f8f8;
-      border-radius: 12px;
-
-      h2 {
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      .info-box {
-        margin-top: 18px;
-
-        h3 {
-          font-size: 16px;
-          margin-bottom: 5px;
-        }
-
-        p {
-          font-size: 14px;
-          color: #555;
-        }
-      }
-
-      .back-btn {
-        margin-top: 30px;
-        padding: 10px 14px;
-        width: 100%;
-        background: #111;
-        color: #fff;
-        border-radius: 8px;
-        cursor: pointer;
-
-        &:hover {
-          background: desaturate(g.$mainColor, 20%);
-        }
-      }
+    .chat-header {
+        @include g.flex();
+        margin-bottom: 30px;
+        justify-content: center;
     }
 
-    /* 오른쪽 채팅 */
-    .chat-right {
-      width: 65%;
-      display: flex;
-      flex-direction: column;
-
-      .chat-window {
-        height: 480px;
-        padding: 20px;
-        background: #fff;
-        border-radius: 12px;
-        overflow-y: auto;
-        border: 1px solid #ddd;
-
-        .chat-message {
-          max-width: 70%;
-          padding: 12px 16px;
-          margin-bottom: 12px;
-          border-radius: 10px;
-          font-size: 15px;
-
-          &.chat-user {
-            background: desaturate(g.$mainColor, 20%);
-            color: #fff;
-            margin-left: auto;
-          }
-
-          &.chat-system {
-            background: #e5e5e5;
-            color: #333;
-            margin-right: auto;
-          }
-        }
-      }
-
-      .chat-input-area {
+    .chat-content {
         display: flex;
-        margin-top: 14px;
-        gap: 10px;
+        gap: 20px;
 
-        input {
-          flex: 1;
-          padding: 12px;
-          border-radius: 8px;
-          border: 1px solid #ccc;
+        /* 왼쪽 안내 */
+        .chat-left {
+            width: 35%;
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 12px;
+
+            h2 {
+                font-size: 22px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .info-box {
+                margin-top: 18px;
+
+                h3 {
+                    font-size: 16px;
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    font-size: 14px;
+                    color: #555;
+                }
+            }
+
+            .back-btn {
+                margin-top: 30px;
+                padding: 10px 14px;
+                width: 100%;
+                background: #111;
+                color: #fff;
+                border-radius: 8px;
+                cursor: pointer;
+
+                &:hover {
+                    background: desaturate(g.$mainColor, 20%);
+                }
+            }
         }
 
-        button {
-          padding: 12px 18px;
-          background: #111;
-          color: #fff;
-          border-radius: 8px;
-          cursor: pointer;
+        /* 오른쪽 채팅 */
+        .chat-right {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
 
-          &:hover {
-            background: desaturate(g.$mainColor, 20%);
-          }
+            .chat-window {
+                height: 480px;
+                padding: 20px;
+                background: #fff;
+                border-radius: 12px;
+                overflow-y: auto;
+                border: 1px solid #ddd;
+
+                .chat-message {
+                    max-width: 70%;
+                    padding: 12px 16px;
+                    margin-bottom: 12px;
+                    border-radius: 10px;
+                    font-size: 15px;
+
+                    &.chat-user {
+                        background: desaturate(g.$mainColor, 20%);
+                        color: #fff;
+                        margin-left: auto;
+                    }
+
+                    &.chat-system {
+                        background: #e5e5e5;
+                        color: #333;
+                        margin-right: auto;
+                    }
+                }
+            }
+
+            .chat-input-area {
+                display: flex;
+                margin-top: 14px;
+                gap: 10px;
+
+                input {
+                    flex: 1;
+                    padding: 12px;
+                    border-radius: 8px;
+                    border: 1px solid #ccc;
+                }
+
+                button {
+                    padding: 12px 18px;
+                    background: #111;
+                    color: #fff;
+                    border-radius: 8px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: desaturate(g.$mainColor, 20%);
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }

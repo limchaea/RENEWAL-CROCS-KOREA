@@ -23,8 +23,8 @@ const JibbitzProductDetail = () => {
         return <div>상품 정보를 불러오고 있으니 기다리</div>;
     }
     return (
-        <main className="product-detail-page">
-            <div className="product-img-info__wrap">
+        <main className='product-detail-page'>
+            <div className='product-img-info__wrap'>
                 <JibbitzProductImage product={product} />
                 <JibbitzProductInfo product={product} />
             </div>

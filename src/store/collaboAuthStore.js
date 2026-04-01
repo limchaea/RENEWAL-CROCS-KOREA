@@ -25,7 +25,7 @@ export const collaboAuthStore = create((set, get) => ({
             item.title.includes('디즈니') ||
             item.title.includes('동물') ||
             item.title.includes('미키') ||
-            (item.title.includes('산리오') && item.price !== '')
+            (item.title.includes('산리오') && item.price !== ''),
     ),
 
     jibbitzFilterList: ['전체', '싱글', '팩', '콜라보'],

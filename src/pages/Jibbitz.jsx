@@ -3,9 +3,9 @@ import Title from '../components/Title';
 
 const Jibbitz = () => {
     return (
-        <div className="sub_page">
-            <div className="inner">
-                <Title title="jibbitz" />
+        <div className='sub_page'>
+            <div className='inner'>
+                <Title title='jibbitz' />
             </div>
         </div>
     );

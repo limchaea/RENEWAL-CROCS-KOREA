@@ -1,564 +1,559 @@
-@use "../../App.scss" as g;
+@use '../../App.scss' as g;
 
 .mypage_page {
-  .inner {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-    padding-bottom: 80px;
-
-    .title_wrap {
-      margin-bottom: 5rem;
-      .section_title {
-        text-align: center;
-      }
-    }
-
-    .edit_form {
-      width: 100%;
-
-      .form_section {
-        margin-bottom: 5rem;
-        padding-bottom: 3rem;
-        border-bottom: 1px solid #eee;
-
-        &:last-of-type {
-          border-bottom: none;
-        }
-
-        .section_title {
-          font-size: 2rem;
-          font-weight: 700;
-          margin-bottom: 3rem;
-          color: #333;
-        }
-
-        .form_group {
-          margin-bottom: 2.5rem;
-
-          .form_label {
-            display: block;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 1rem;
-
-            &.required::after {
-              content: " *";
-              color: g.$mainColor;
-            }
-          }
-
-          .form_input {
-            width: 100%;
-            height: 5rem;
-            padding: 0 2rem;
-            font-size: 1.4rem;
-            border: 1px solid #ddd;
-            border-radius: 50px;
-            background-color: #fff;
-            transition: border-color 0.2s;
-
-            &:focus {
-              outline: none;
-              border-color: g.$mainColor;
-            }
-
-            &::placeholder {
-              color: #aaa;
-            }
-
-            &[readonly] {
-              background-color: #f5f5f5;
-              cursor: not-allowed;
-            }
-          }
-
-          .input_notice {
-            font-size: 1.2rem;
-            color: #999;
-            margin-top: 0.8rem;
-            padding-left: 1rem;
-          }
-
-          .password_message {
-            font-size: 1.3rem;
-            margin-top: 0.8rem;
-            padding-left: 1rem;
-            font-weight: 500;
-
-            &.valid {
-              color: #27ae60;
-            }
-
-            &.invalid {
-              color: #e74c3c;
-            }
-          }
-
-          // 주소 표시
-          .address_display {
-            padding: 2rem;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            min-height: 8rem;
-            @include g.flex(
-              $jc: center,
-              $ai: flex-start,
-              $fd: column,
-              $gap: 0.5rem
-            );
-
-            .address_text {
-              font-size: 1.4rem;
-              color: #333;
-              line-height: 1.6;
-            }
-
-            .no_address {
-              font-size: 1.4rem;
-              color: #999;
-              text-align: center;
-              width: 100%;
-            }
-          }
-
-          .btn_address {
-            width: 100%;
-            height: 5rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #fff;
-            background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%);
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.2s;
-
-            &:hover {
-              transform: translateY(-2px);
-              box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3);
-            }
-
-            &:active {
-              transform: translateY(0);
-            }
-          }
-        }
-
-        // 체크박스 그룹
-        .checkbox_group {
-          margin-bottom: 2.5rem;
-
-          .checkbox_label {
-            @include g.flex($jc: flex-start, $ai: center, $gap: 1rem);
-            cursor: pointer;
-
-            input[type="checkbox"] {
-              width: 2rem;
-              height: 2rem;
-              cursor: pointer;
-              accent-color: g.$mainColor;
-            }
-
-            .checkbox_text {
-              font-size: 1.4rem;
-              font-weight: 600;
-              color: #333;
-            }
-          }
-
-          .checkbox_desc {
-            font-size: 1.2rem;
-            color: #666;
-            margin-top: 0.8rem;
-            padding-left: 3rem;
-            line-height: 1.5;
-          }
-        }
-
-        // 회원 탈퇴
-        .delete_desc {
-          font-size: 1.3rem;
-          color: #666;
-          line-height: 1.8;
-          margin-bottom: 2rem;
-          padding: 2rem;
-          background-color: #fff3cd;
-          border-radius: 10px;
-          border: 1px solid #ffc107;
-        }
-
-        .btn_delete {
-          width: 100%;
-          height: 5rem;
-          font-size: 1.4rem;
-          font-weight: 600;
-          color: #fff;
-          background-color: #e74c3c;
-          border: none;
-          border-radius: 50px;
-          cursor: pointer;
-          transition: all 0.2s;
-
-          &:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-          }
-
-          &:active {
-            transform: translateY(0);
-          }
-        }
-      }
-
-      // 버튼 영역
-      .button_wrap {
-        @include g.flex($jc: flex-end, $ai: center, $gap: 1.5rem);
-        margin-top: 4rem;
-
-        button {
-          height: 5rem;
-          padding: 0 4rem;
-          font-size: 1.4rem;
-          font-weight: 600;
-          border-radius: 50px;
-          cursor: pointer;
-          transition: all 0.2s;
-        }
-
-        .btn_cancel {
-          background-color: #fff;
-          color: #333;
-          border: 1px solid #ddd;
-
-          &:hover {
-            background-color: #f5f5f5;
-            border-color: #999;
-          }
-        }
-
-        .btn_submit {
-          background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%);
-          color: #fff;
-          border: none;
-          box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3);
-
-          &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 222, 27, 0.4);
-          }
-
-          &:active {
-            transform: translateY(0);
-          }
-        }
-      }
-    }
-
-    // 배송지 등록 모달
-    .address_modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      @include g.flex($jc: center, $ai: center);
-      z-index: 1000;
-      padding: 2rem;
-
-      .modal_content {
-        background: #fff;
-        width: 100%;
-        max-width: 600px;
-        border-radius: 12px;
-        overflow: hidden;
-
-        .modal_header {
-          @include g.flex($jc: space-between, $ai: center);
-          padding: 2.5rem 3rem;
-          border-bottom: 1px solid #eee;
-
-          h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #333;
-          }
-
-          .close_btn {
-            width: 3.5rem;
-            height: 3.5rem;
-            @include g.flex($jc: center, $ai: center);
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 2.4rem;
-            color: #666;
-            transition: all 0.2s;
-
-            &:hover {
-              color: #333;
-              transform: rotate(90deg);
-            }
-          }
-        }
-
-        .modal_body {
-          padding: 3rem;
-
-          .form_group {
-            margin-bottom: 2rem;
-
-            &:last-child {
-              margin-bottom: 0;
-            }
-
-            .form_label {
-              display: block;
-              font-size: 1.4rem;
-              font-weight: 600;
-              color: #333;
-              margin-bottom: 1rem;
-            }
-
-            .form_input {
-              width: 100%;
-              height: 5rem;
-              padding: 0 2rem;
-              font-size: 1.4rem;
-              border: 1px solid #ddd;
-              border-radius: 50px;
-              background-color: #fff;
-              transition: border-color 0.2s;
-
-              &:focus {
-                outline: none;
-                border-color: g.$mainColor;
-              }
-
-              &::placeholder {
-                color: #aaa;
-              }
-
-              &[readonly] {
-                background-color: #f5f5f5;
-              }
-            }
-
-            .address_input_group {
-              display: grid;
-              grid-template-columns: 1fr auto;
-              gap: 1rem;
-
-              .btn_postcode {
-                height: 5rem;
-                padding: 0 2.5rem;
-                font-size: 1.4rem;
-                font-weight: 600;
-                color: #333;
-                background-color: #fff;
-                border: 1px solid #ddd;
-                border-radius: 50px;
-                cursor: pointer;
-                transition: all 0.2s;
-                white-space: nowrap;
-
-                &:hover {
-                  background-color: #333;
-                  color: #fff;
-                  border-color: #333;
-                }
-              }
-            }
-          }
-        }
-
-        .modal_footer {
-          @include g.flex($jc: flex-end, $ai: center, $gap: 1rem);
-          padding: 2rem 3rem;
-          border-top: 1px solid #eee;
-
-          button {
-            height: 5rem;
-            padding: 0 3rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.2s;
-          }
-
-          .btn_modal_cancel {
-            background-color: #fff;
-            color: #333;
-            border: 1px solid #ddd;
-
-            &:hover {
-              background-color: #f5f5f5;
-              border-color: #999;
-            }
-          }
-
-          .btn_modal_submit {
-            background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%);
-            color: #fff;
-            border: none;
-
-            &:hover {
-              transform: translateY(-2px);
-              box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3);
-            }
-
-            &:active {
-              transform: translateY(0);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // 반응형
-  @media (max-width: 768px) {
     .inner {
-      padding: 2rem 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+        padding-bottom: 80px;
 
-      .edit_form {
-        .form_section {
-          margin-bottom: 3rem;
-          padding-bottom: 2rem;
-
-          .section_title {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-          }
-
-          .form_group {
-            margin-bottom: 2rem;
-
-            .form_label {
-              font-size: 1.3rem;
+        .title_wrap {
+            margin-bottom: 5rem;
+            .section_title {
+                text-align: center;
             }
-
-            .form_input {
-              height: 4.5rem;
-              font-size: 1.3rem;
-            }
-
-            .address_display {
-              padding: 1.5rem;
-              min-height: 6rem;
-
-              .address_text {
-                font-size: 1.3rem;
-              }
-            }
-
-            .btn_address {
-              height: 4.5rem;
-              font-size: 1.3rem;
-            }
-          }
-
-          .checkbox_group {
-            margin-bottom: 2rem;
-
-            .checkbox_label {
-              input[type="checkbox"] {
-                width: 1.8rem;
-                height: 1.8rem;
-              }
-
-              .checkbox_text {
-                font-size: 1.3rem;
-              }
-            }
-
-            .checkbox_desc {
-              font-size: 1.1rem;
-              padding-left: 2.8rem;
-            }
-          }
-
-          .delete_desc {
-            font-size: 1.2rem;
-            padding: 1.5rem;
-          }
-
-          .btn_delete {
-            height: 4.5rem;
-            font-size: 1.3rem;
-          }
         }
 
-        .button_wrap {
-          flex-direction: column;
-          gap: 1rem;
-
-          button {
+        .edit_form {
             width: 100%;
-            height: 4.5rem;
-            font-size: 1.3rem;
-          }
-        }
-      }
 
-      .address_modal {
-        padding: 1rem;
+            .form_section {
+                margin-bottom: 5rem;
+                padding-bottom: 3rem;
+                border-bottom: 1px solid #eee;
 
-        .modal_content {
-          max-width: 100%;
-
-          .modal_header {
-            padding: 2rem;
-
-            h3 {
-              font-size: 1.8rem;
-            }
-
-            .close_btn {
-              width: 3rem;
-              height: 3rem;
-              font-size: 2rem;
-            }
-          }
-
-          .modal_body {
-            padding: 2rem;
-
-            .form_group {
-              .form_input {
-                height: 4.5rem;
-                font-size: 1.3rem;
-              }
-
-              .address_input_group {
-                grid-template-columns: 1fr;
-
-                .btn_postcode {
-                  width: 100%;
-                  height: 4.5rem;
-                  font-size: 1.3rem;
+                &:last-of-type {
+                    border-bottom: none;
                 }
-              }
-            }
-          }
 
-          .modal_footer {
-            padding: 1.5rem 2rem;
-            flex-direction: column;
+                .section_title {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    margin-bottom: 3rem;
+                    color: #333;
+                }
 
-            button {
-              width: 100%;
-              height: 4.5rem;
-              font-size: 1.3rem;
+                .form_group {
+                    margin-bottom: 2.5rem;
+
+                    .form_label {
+                        display: block;
+                        font-size: 1.4rem;
+                        font-weight: 600;
+                        color: #333;
+                        margin-bottom: 1rem;
+
+                        &.required::after {
+                            content: ' *';
+                            color: g.$mainColor;
+                        }
+                    }
+
+                    .form_input {
+                        width: 100%;
+                        height: 5rem;
+                        padding: 0 2rem;
+                        font-size: 1.4rem;
+                        border: 1px solid #ddd;
+                        border-radius: 50px;
+                        background-color: #fff;
+                        transition: border-color 0.2s;
+
+                        &:focus {
+                            outline: none;
+                            border-color: g.$mainColor;
+                        }
+
+                        &::placeholder {
+                            color: #aaa;
+                        }
+
+                        &[readonly] {
+                            background-color: #f5f5f5;
+                            cursor: not-allowed;
+                        }
+                    }
+
+                    .input_notice {
+                        font-size: 1.2rem;
+                        color: #999;
+                        margin-top: 0.8rem;
+                        padding-left: 1rem;
+                    }
+
+                    .password_message {
+                        font-size: 1.3rem;
+                        margin-top: 0.8rem;
+                        padding-left: 1rem;
+                        font-weight: 500;
+
+                        &.valid {
+                            color: #27ae60;
+                        }
+
+                        &.invalid {
+                            color: #e74c3c;
+                        }
+                    }
+
+                    // 주소 표시
+                    .address_display {
+                        padding: 2rem;
+                        background-color: #f8f9fa;
+                        border-radius: 10px;
+                        margin-bottom: 1.5rem;
+                        min-height: 8rem;
+                        @include g.flex($jc: center, $ai: flex-start, $fd: column, $gap: 0.5rem);
+
+                        .address_text {
+                            font-size: 1.4rem;
+                            color: #333;
+                            line-height: 1.6;
+                        }
+
+                        .no_address {
+                            font-size: 1.4rem;
+                            color: #999;
+                            text-align: center;
+                            width: 100%;
+                        }
+                    }
+
+                    .btn_address {
+                        width: 100%;
+                        height: 5rem;
+                        font-size: 1.4rem;
+                        font-weight: 600;
+                        color: #fff;
+                        background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%);
+                        border: none;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        transition: all 0.2s;
+
+                        &:hover {
+                            transform: translateY(-2px);
+                            box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3);
+                        }
+
+                        &:active {
+                            transform: translateY(0);
+                        }
+                    }
+                }
+
+                // 체크박스 그룹
+                .checkbox_group {
+                    margin-bottom: 2.5rem;
+
+                    .checkbox_label {
+                        @include g.flex($jc: flex-start, $ai: center, $gap: 1rem);
+                        cursor: pointer;
+
+                        input[type='checkbox'] {
+                            width: 2rem;
+                            height: 2rem;
+                            cursor: pointer;
+                            accent-color: g.$mainColor;
+                        }
+
+                        .checkbox_text {
+                            font-size: 1.4rem;
+                            font-weight: 600;
+                            color: #333;
+                        }
+                    }
+
+                    .checkbox_desc {
+                        font-size: 1.2rem;
+                        color: #666;
+                        margin-top: 0.8rem;
+                        padding-left: 3rem;
+                        line-height: 1.5;
+                    }
+                }
+
+                // 회원 탈퇴
+                .delete_desc {
+                    font-size: 1.3rem;
+                    color: #666;
+                    line-height: 1.8;
+                    margin-bottom: 2rem;
+                    padding: 2rem;
+                    background-color: #fff3cd;
+                    border-radius: 10px;
+                    border: 1px solid #ffc107;
+                }
+
+                .btn_delete {
+                    width: 100%;
+                    height: 5rem;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    color: #fff;
+                    background-color: #e74c3c;
+                    border: none;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        background-color: #c0392b;
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+                    }
+
+                    &:active {
+                        transform: translateY(0);
+                    }
+                }
             }
-          }
+
+            // 버튼 영역
+            .button_wrap {
+                @include g.flex($jc: flex-end, $ai: center, $gap: 1.5rem);
+                margin-top: 4rem;
+
+                button {
+                    height: 5rem;
+                    padding: 0 4rem;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+
+                .btn_cancel {
+                    background-color: #fff;
+                    color: #333;
+                    border: 1px solid #ddd;
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                        border-color: #999;
+                    }
+                }
+
+                .btn_submit {
+                    background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%);
+                    color: #fff;
+                    border: none;
+                    box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3);
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 6px 20px rgba(102, 222, 27, 0.4);
+                    }
+
+                    &:active {
+                        transform: translateY(0);
+                    }
+                }
+            }
         }
-      }
+
+        // 배송지 등록 모달
+        .address_modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            @include g.flex($jc: center, $ai: center);
+            z-index: 1000;
+            padding: 2rem;
+
+            .modal_content {
+                background: #fff;
+                width: 100%;
+                max-width: 600px;
+                border-radius: 12px;
+                overflow: hidden;
+
+                .modal_header {
+                    @include g.flex($jc: space-between, $ai: center);
+                    padding: 2.5rem 3rem;
+                    border-bottom: 1px solid #eee;
+
+                    h3 {
+                        font-size: 2rem;
+                        font-weight: 700;
+                        color: #333;
+                    }
+
+                    .close_btn {
+                        width: 3.5rem;
+                        height: 3.5rem;
+                        @include g.flex($jc: center, $ai: center);
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        font-size: 2.4rem;
+                        color: #666;
+                        transition: all 0.2s;
+
+                        &:hover {
+                            color: #333;
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+
+                .modal_body {
+                    padding: 3rem;
+
+                    .form_group {
+                        margin-bottom: 2rem;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        .form_label {
+                            display: block;
+                            font-size: 1.4rem;
+                            font-weight: 600;
+                            color: #333;
+                            margin-bottom: 1rem;
+                        }
+
+                        .form_input {
+                            width: 100%;
+                            height: 5rem;
+                            padding: 0 2rem;
+                            font-size: 1.4rem;
+                            border: 1px solid #ddd;
+                            border-radius: 50px;
+                            background-color: #fff;
+                            transition: border-color 0.2s;
+
+                            &:focus {
+                                outline: none;
+                                border-color: g.$mainColor;
+                            }
+
+                            &::placeholder {
+                                color: #aaa;
+                            }
+
+                            &[readonly] {
+                                background-color: #f5f5f5;
+                            }
+                        }
+
+                        .address_input_group {
+                            display: grid;
+                            grid-template-columns: 1fr auto;
+                            gap: 1rem;
+
+                            .btn_postcode {
+                                height: 5rem;
+                                padding: 0 2.5rem;
+                                font-size: 1.4rem;
+                                font-weight: 600;
+                                color: #333;
+                                background-color: #fff;
+                                border: 1px solid #ddd;
+                                border-radius: 50px;
+                                cursor: pointer;
+                                transition: all 0.2s;
+                                white-space: nowrap;
+
+                                &:hover {
+                                    background-color: #333;
+                                    color: #fff;
+                                    border-color: #333;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .modal_footer {
+                    @include g.flex($jc: flex-end, $ai: center, $gap: 1rem);
+                    padding: 2rem 3rem;
+                    border-top: 1px solid #eee;
+
+                    button {
+                        height: 5rem;
+                        padding: 0 3rem;
+                        font-size: 1.4rem;
+                        font-weight: 600;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                    }
+
+                    .btn_modal_cancel {
+                        background-color: #fff;
+                        color: #333;
+                        border: 1px solid #ddd;
+
+                        &:hover {
+                            background-color: #f5f5f5;
+                            border-color: #999;
+                        }
+                    }
+
+                    .btn_modal_submit {
+                        background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%);
+                        color: #fff;
+                        border: none;
+
+                        &:hover {
+                            transform: translateY(-2px);
+                            box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3);
+                        }
+
+                        &:active {
+                            transform: translateY(0);
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
+
+    // 반응형
+    @media (max-width: 768px) {
+        .inner {
+            padding: 2rem 1.5rem;
+
+            .edit_form {
+                .form_section {
+                    margin-bottom: 3rem;
+                    padding-bottom: 2rem;
+
+                    .section_title {
+                        font-size: 1.8rem;
+                        margin-bottom: 2rem;
+                    }
+
+                    .form_group {
+                        margin-bottom: 2rem;
+
+                        .form_label {
+                            font-size: 1.3rem;
+                        }
+
+                        .form_input {
+                            height: 4.5rem;
+                            font-size: 1.3rem;
+                        }
+
+                        .address_display {
+                            padding: 1.5rem;
+                            min-height: 6rem;
+
+                            .address_text {
+                                font-size: 1.3rem;
+                            }
+                        }
+
+                        .btn_address {
+                            height: 4.5rem;
+                            font-size: 1.3rem;
+                        }
+                    }
+
+                    .checkbox_group {
+                        margin-bottom: 2rem;
+
+                        .checkbox_label {
+                            input[type='checkbox'] {
+                                width: 1.8rem;
+                                height: 1.8rem;
+                            }
+
+                            .checkbox_text {
+                                font-size: 1.3rem;
+                            }
+                        }
+
+                        .checkbox_desc {
+                            font-size: 1.1rem;
+                            padding-left: 2.8rem;
+                        }
+                    }
+
+                    .delete_desc {
+                        font-size: 1.2rem;
+                        padding: 1.5rem;
+                    }
+
+                    .btn_delete {
+                        height: 4.5rem;
+                        font-size: 1.3rem;
+                    }
+                }
+
+                .button_wrap {
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    button {
+                        width: 100%;
+                        height: 4.5rem;
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+
+            .address_modal {
+                padding: 1rem;
+
+                .modal_content {
+                    max-width: 100%;
+
+                    .modal_header {
+                        padding: 2rem;
+
+                        h3 {
+                            font-size: 1.8rem;
+                        }
+
+                        .close_btn {
+                            width: 3rem;
+                            height: 3rem;
+                            font-size: 2rem;
+                        }
+                    }
+
+                    .modal_body {
+                        padding: 2rem;
+
+                        .form_group {
+                            .form_input {
+                                height: 4.5rem;
+                                font-size: 1.3rem;
+                            }
+
+                            .address_input_group {
+                                grid-template-columns: 1fr;
+
+                                .btn_postcode {
+                                    width: 100%;
+                                    height: 4.5rem;
+                                    font-size: 1.3rem;
+                                }
+                            }
+                        }
+                    }
+
+                    .modal_footer {
+                        padding: 1.5rem 2rem;
+                        flex-direction: column;
+
+                        button {
+                            width: 100%;
+                            height: 4.5rem;
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

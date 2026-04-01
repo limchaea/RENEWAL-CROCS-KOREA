@@ -1,142 +1,142 @@
-@use "../../App.scss" as g;
+@use '../../App.scss' as g;
 
 .recent_inner {
-  padding: 8rem 4rem;
-  @include g.flex($fd: column, $ai: unset, $jc: unset, $gap: 4rem);
-  background: #eee;
-  border-radius: 2rem;
+    padding: 8rem 4rem;
+    @include g.flex($fd: column, $ai: unset, $jc: unset, $gap: 4rem);
+    background: #eee;
+    border-radius: 2rem;
 
-  .recent_header {
-    @include g.flex($jc: flex-end);
+    .recent_header {
+        @include g.flex($jc: flex-end);
 
-    .recent_clear_btn {
-      padding: 1rem 2.5rem;
-      background: g.$subColor;
-      border-radius: 5rem;
-      color: g.$mainColor;
-      border: none;
-      cursor: pointer;
-      font-size: 1.4rem;
-      font-weight: 500;
-      transition: all 0.3s;
+        .recent_clear_btn {
+            padding: 1rem 2.5rem;
+            background: g.$subColor;
+            border-radius: 5rem;
+            color: g.$mainColor;
+            border: none;
+            cursor: pointer;
+            font-size: 1.4rem;
+            font-weight: 500;
+            transition: all 0.3s;
 
-      &:hover {
-        background: g.$mainColor;
-        color: g.$subColor;
-      }
-    }
-  }
-
-  .recent_empty {
-    text-align: center;
-    padding: 100px 20px;
-
-    .empty-icon {
-      font-size: 64px;
-      margin-bottom: 20px;
+            &:hover {
+                background: g.$mainColor;
+                color: g.$subColor;
+            }
+        }
     }
 
-    p {
-      font-size: 20px;
-      font-weight: 500;
-      color: #333;
-    }
-  }
+    .recent_empty {
+        text-align: center;
+        padding: 100px 20px;
 
-  .recent_card_wrap {
-    width: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 2rem;
-
-    .recent_card {
-      @include g.flex($fd: column, $ai: unset);
-
-      .recent_card_imgbox {
-        position: relative;
-        @include g.flex($jc: center, $ai: center);
-        width: 100%;
-        aspect-ratio: 1/1;
-        border-radius: 1rem;
-        border: 1px solid #eee;
-        background: white;
-        overflow: hidden;
-        cursor: pointer;
-
-        &:hover {
-          border: 1px solid g.$mainColor;
-        }
-
-        img {
-          width: 50%;
-          height: 50%;
-          object-fit: contain;
-        }
-
-        .viewed-time {
-          position: absolute;
-          top: 1rem;
-          right: 1rem;
-          background: rgba(0, 0, 0, 0.7);
-          color: white;
-          padding: 0.4rem 0.8rem;
-          border-radius: 0.4rem;
-          font-size: 1.2rem;
-          font-weight: 500;
-        }
-      }
-
-      .recent_card_textbox {
-        width: 100%;
-        padding: 0 1rem;
-        cursor: pointer;
-
-        .recent_card_price {
-          @include g.flex();
-          margin: 1rem 0;
+        .empty-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
         }
 
         p {
-          span:nth-child(2) {
-            color: #9e9e9e;
-            text-decoration: line-through;
-            font-size: 1.4rem;
-          }
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
         }
+    }
 
-        .price_bottom {
-          color: g.$mainColor;
-          font-weight: 600;
+    .recent_card_wrap {
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 2rem;
+
+        .recent_card {
+            @include g.flex($fd: column, $ai: unset);
+
+            .recent_card_imgbox {
+                position: relative;
+                @include g.flex($jc: center, $ai: center);
+                width: 100%;
+                aspect-ratio: 1/1;
+                border-radius: 1rem;
+                border: 1px solid #eee;
+                background: white;
+                overflow: hidden;
+                cursor: pointer;
+
+                &:hover {
+                    border: 1px solid g.$mainColor;
+                }
+
+                img {
+                    width: 50%;
+                    height: 50%;
+                    object-fit: contain;
+                }
+
+                .viewed-time {
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+                    background: rgba(0, 0, 0, 0.7);
+                    color: white;
+                    padding: 0.4rem 0.8rem;
+                    border-radius: 0.4rem;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                }
+            }
+
+            .recent_card_textbox {
+                width: 100%;
+                padding: 0 1rem;
+                cursor: pointer;
+
+                .recent_card_price {
+                    @include g.flex();
+                    margin: 1rem 0;
+                }
+
+                p {
+                    span:nth-child(2) {
+                        color: #9e9e9e;
+                        text-decoration: line-through;
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .price_bottom {
+                    color: g.$mainColor;
+                    font-weight: 600;
+                }
+            }
         }
-      }
     }
-  }
 
-  .pager_btn {
-    text-align: center;
-    @include g.flex($jc: center, $gap: 1rem);
+    .pager_btn {
+        text-align: center;
+        @include g.flex($jc: center, $gap: 1rem);
 
-    button {
-      padding: 0.8rem 1.6rem;
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: all 0.3s;
+        button {
+            padding: 0.8rem 1.6rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
 
-      &:hover {
-        background: g.$mainColor;
-        color: white;
-        border-color: g.$mainColor;
-      }
+            &:hover {
+                background: g.$mainColor;
+                color: white;
+                border-color: g.$mainColor;
+            }
 
-      &.active {
-        background: g.$mainColor;
-        color: white;
-        border-color: g.$mainColor;
-      }
+            &.active {
+                background: g.$mainColor;
+                color: white;
+                border-color: g.$mainColor;
+            }
+        }
     }
-  }
 }

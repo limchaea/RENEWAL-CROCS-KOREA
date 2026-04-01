@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { loginAuthStore } from "../store/loginStore";
+import React, { useEffect, useState } from 'react';
+import { loginAuthStore } from '../store/loginStore';
 
 const CrocsClubOption = ({ onValidationChange }) => {
     const { user } = loginAuthStore();
 
     const [formData, setFormData] = useState({
-        month: "",
-        day: "",
-        email: user?.email || "",
+        month: '',
+        day: '',
+        email: user?.email || '',
         agree: false,
     });
 
@@ -25,20 +25,20 @@ const CrocsClubOption = ({ onValidationChange }) => {
     useEffect(() => {
         const isValid =
             formData.month &&
-            formData.month !== "" &&
+            formData.month !== '' &&
             formData.day &&
-            formData.day !== "" &&
+            formData.day !== '' &&
             formData.email &&
-            formData.email.trim() !== "" &&
+            formData.email.trim() !== '' &&
             formData.agree === true;
 
-        console.log("=== CrocsClubOption 검증 ===");
-        console.log("월:", formData.month);
-        console.log("일:", formData.day);
-        console.log("이메일:", formData.email);
-        console.log("약관동의:", formData.agree);
-        console.log("검증결과:", isValid);
-        console.log("===========================");
+        console.log('=== CrocsClubOption 검증 ===');
+        console.log('월:', formData.month);
+        console.log('일:', formData.day);
+        console.log('이메일:', formData.email);
+        console.log('약관동의:', formData.agree);
+        console.log('검증결과:', isValid);
+        console.log('===========================');
 
         // 부모 컴포넌트에 검증 결과 전달
         if (onValidationChange) {

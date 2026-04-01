@@ -5,9 +5,9 @@ import './scss/wishlist.scss';
 
 const WishList = () => {
     return (
-        <div className="sub_page wishlist_page">
-            <div className="inner">
-                <Title title="WishList" />
+        <div className='sub_page wishlist_page'>
+            <div className='inner'>
+                <Title title='WishList' />
                 <WishListCard />
             </div>
         </div>

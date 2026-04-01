@@ -4,7 +4,7 @@ import GnbRight from './GnbRight';
 
 const GnbWrap = ({ onSearchClick }) => {
     return (
-        <div className="gnb_wrap">
+        <div className='gnb_wrap'>
             <GnbLeft />
             <GnbRight onSearchClick={onSearchClick} />
         </div>

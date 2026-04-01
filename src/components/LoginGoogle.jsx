@@ -14,9 +14,9 @@ const LoginGoogle = () => {
     };
 
     return (
-        <div className="google_wrap">
-            <button className="sns_login google" onClick={handleGoogleLogin} type="button">
-                <img src="/images/google_icon.svg" alt="google_login" />
+        <div className='google_wrap'>
+            <button className='sns_login google' onClick={handleGoogleLogin} type='button'>
+                <img src='/images/google_icon.svg' alt='google_login' />
             </button>
         </div>
     );

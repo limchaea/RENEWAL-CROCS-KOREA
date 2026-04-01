@@ -95,25 +95,19 @@ const JibbitzProductDetail = () => {
     const detailPrice = JibbitzProduct ? getDetailPrice(JibbitzProduct) : 0;
     const originalPrice = JibbitzProduct ? getOriginalPrice(JibbitzProduct) : null;
     const hasOriginal = originalPrice !== null && originalPrice > detailPrice;
-    const discountPercent = hasOriginal
-        ? Math.round(((originalPrice - detailPrice) / originalPrice) * 100)
-        : null;
+    const discountPercent = hasOriginal ? Math.round(((originalPrice - detailPrice) / originalPrice) * 100) : null;
 
     // 수량 증가
     const increaseQty = (productId) => {
-        setSelectedProducts(
-            selectedProducts.map((p) =>
-                p.id === productId ? { ...p, quantity: p.quantity + 1 } : p
-            )
-        );
+        setSelectedProducts(selectedProducts.map((p) => (p.id === productId ? { ...p, quantity: p.quantity + 1 } : p)));
     };
 
     // 수량 감소
     const decreaseQty = (productId) => {
         setSelectedProducts(
             selectedProducts.map((p) =>
-                p.id === productId && p.quantity > 1 ? { ...p, quantity: p.quantity - 1 } : p
-            )
+                p.id === productId && p.quantity > 1 ? { ...p, quantity: p.quantity - 1 } : p,
+            ),
         );
     };
 
@@ -143,17 +137,13 @@ const JibbitzProductDetail = () => {
     if (!JibbitzProduct) {
         return (
             <div className="product-detail-container">
-                <div style={{ textAlign: 'center', padding: '4rem' }}>
-                    상품 정보를 불러오고 있습니다...
-                </div>
+                <div style={{ textAlign: 'center', padding: '4rem' }}>상품 정보를 불러오고 있습니다...</div>
             </div>
         );
     }
 
     // 이미지 배열 처리
-    const images = Array.isArray(JibbitzProduct.imageUrl)
-        ? JibbitzProduct.imageUrl
-        : [JibbitzProduct.imageUrl];
+    const images = Array.isArray(JibbitzProduct.imageUrl) ? JibbitzProduct.imageUrl : [JibbitzProduct.imageUrl];
 
     return (
         <div className="product-detail-container">
@@ -173,11 +163,8 @@ const JibbitzProductDetail = () => {
                                 {images.map((img, idx) => (
                                     <div
                                         key={idx}
-                                        className={`thumbnail-item ${
-                                            idx === selectedImageIdx ? 'active' : ''
-                                        }`}
-                                        onClick={() => setSelectedImageIdx(idx)}
-                                    >
+                                        className={`thumbnail-item ${idx === selectedImageIdx ? 'active' : ''}`}
+                                        onClick={() => setSelectedImageIdx(idx)}>
                                         <img src={img} alt={`썸네일 ${idx + 1}`} />
                                     </div>
                                 ))}
@@ -197,9 +184,7 @@ const JibbitzProductDetail = () => {
                                 )}
                                 <span className="sale-price">₩{detailPrice.toLocaleString()}</span>
                                 {hasOriginal && (
-                                    <span className="original-price">
-                                        ₩{originalPrice.toLocaleString()}
-                                    </span>
+                                    <span className="original-price">₩{originalPrice.toLocaleString()}</span>
                                 )}
                             </div>
                         </div>
@@ -216,23 +201,18 @@ const JibbitzProductDetail = () => {
                                             <button
                                                 className="quantity-btn"
                                                 onClick={() => decreaseQty(product.id)}
-                                                disabled={product.quantity <= 1}
-                                            >
+                                                disabled={product.quantity <= 1}>
                                                 -
                                             </button>
                                             <span className="quantity">{product.quantity}</span>
-                                            <button
-                                                className="quantity-btn"
-                                                onClick={() => increaseQty(product.id)}
-                                            >
+                                            <button className="quantity-btn" onClick={() => increaseQty(product.id)}>
                                                 +
                                             </button>
                                         </div>
                                         <button
                                             className="remove-btn"
                                             onClick={() => removeProduct(product.id)}
-                                            title="상품 삭제"
-                                        >
+                                            title="상품 삭제">
                                             ✕
                                         </button>
                                     </div>
@@ -256,10 +236,7 @@ const JibbitzProductDetail = () => {
 
                         {/* 구매 버튼 */}
                         <div className="action-buttons">
-                            <button
-                                className="btn-wishlist"
-                                onClick={() => onAddWishList(JibbitzProduct)}
-                            >
+                            <button className="btn-wishlist" onClick={() => onAddWishList(JibbitzProduct)}>
                                 💚
                             </button>
                             <WishAddPopup />
@@ -281,8 +258,7 @@ const JibbitzProductDetail = () => {
                                             link: `/jibbitz/detail/${id}`,
                                         });
                                     });
-                                }}
-                            >
+                                }}>
                                 장바구니
                             </button>
                             <WishAddPopup />
@@ -323,8 +299,7 @@ const JibbitzProductDetail = () => {
                                             orderProducts: orderProducts,
                                         },
                                     });
-                                }}
-                            >
+                                }}>
                                 구매하기
                             </button>
                         </div>
@@ -337,14 +312,10 @@ const JibbitzProductDetail = () => {
                     <div className="tab-section">
                         <div
                             className={`tab-header ${openDesc ? 'active' : ''}`}
-                            onClick={() => setOpenDesc(!openDesc)}
-                        >
+                            onClick={() => setOpenDesc(!openDesc)}>
                             <h3 className="tab-title">상품 상세 설명</h3>
                             <div className="tab-icon">
-                                <img
-                                    src="/images/Sub_Women_Images/icon-arrow-down.svg"
-                                    alt="토글"
-                                />
+                                <img src="/images/Sub_Women_Images/icon-arrow-down.svg" alt="토글" />
                             </div>
                         </div>
                         <div className={`tab-content ${openDesc ? 'active' : ''}`}>
@@ -365,14 +336,10 @@ const JibbitzProductDetail = () => {
                     <div className="tab-section">
                         <div
                             className={`tab-header ${openNotes ? 'active' : ''}`}
-                            onClick={() => setOpenNotes(!openNotes)}
-                        >
+                            onClick={() => setOpenNotes(!openNotes)}>
                             <h3 className="tab-title">유의 사항</h3>
                             <div className="tab-icon">
-                                <img
-                                    src="/images/Sub_Women_Images/icon-arrow-down.svg"
-                                    alt="토글"
-                                />
+                                <img src="/images/Sub_Women_Images/icon-arrow-down.svg" alt="토글" />
                             </div>
                         </div>
                         <div className={`tab-content ${openNotes ? 'active' : ''}`}>
@@ -380,13 +347,8 @@ const JibbitzProductDetail = () => {
                                 <div className="desc-section">
                                     <h4 className="desc-title">사용 시 주의사항</h4>
                                     <ul className="desc-list">
-                                        <li>
-                                            36개월 미만 어린이는 삼킬 위험이 있으니 주의가
-                                            필요합니다.
-                                        </li>
-                                        <li>
-                                            강한 충격이나 무리한 힘을 가하면 파손될 수 있습니다.
-                                        </li>
+                                        <li>36개월 미만 어린이는 삼킬 위험이 있으니 주의가 필요합니다.</li>
+                                        <li>강한 충격이나 무리한 힘을 가하면 파손될 수 있습니다.</li>
                                         <li>불에 가까이 하지 마십시오.</li>
                                     </ul>
                                 </div>
@@ -397,17 +359,13 @@ const JibbitzProductDetail = () => {
                     <div className="tab-section">
                         <div
                             className={`tab-header ${openReview ? 'active' : ''}`}
-                            onClick={() => setOpenReview(!openReview)}
-                        >
+                            onClick={() => setOpenReview(!openReview)}>
                             <h3 className="tab-title">
                                 리뷰
                                 <span className="tab-subtitle">(1,747)</span>
                             </h3>
                             <div className="tab-icon">
-                                <img
-                                    src="/images/Sub_Women_Images/icon-arrow-down.svg"
-                                    alt="토글"
-                                />
+                                <img src="/images/Sub_Women_Images/icon-arrow-down.svg" alt="토글" />
                             </div>
                         </div>
                         <div className={`tab-content ${openReview ? 'active' : ''}`}>

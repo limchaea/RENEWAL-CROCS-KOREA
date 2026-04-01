@@ -7,7 +7,7 @@ import { menuList } from '../store/menuList';
 
 const MainmenuList = () => {
     return (
-        <ul className="main_menu">
+        <ul className='main_menu'>
             {/* 메뉴리스트의 첫번째 메뉴빼고 map돌리기 */}
             {menuList.slice(1).map((menu) => (
                 <li key={menu.key} className={menu.key}>

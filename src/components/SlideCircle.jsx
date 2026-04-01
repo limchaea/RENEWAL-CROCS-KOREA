@@ -41,7 +41,7 @@ const SlideCircle = ({ showDot }) => {
     useEffect(() => {
         if (items.length > 0) {
             const defaultColor = items.map((s) =>
-                Array.isArray(s.color) ? s.color[s.color.length - 1] : ''
+                Array.isArray(s.color) ? s.color[s.color.length - 1] : '',
             );
             setSelectedColorNames(defaultColor);
 
@@ -131,16 +131,16 @@ const SlideCircle = ({ showDot }) => {
     const visibleDots = items.slice(startIndex, startIndex + maxDots); // 해당 그룹의 9개 요소만 표시
 
     return (
-        <section className="circle_slide_wrap">
-            <div id="container">
-                <div id="contents">
+        <section className='circle_slide_wrap'>
+            <div id='container'>
+                <div id='contents'>
                     <Title
                         title={`Come As You Are`}
                         subTitle={`당신의 스타일에 맞는 완벽한 크록스를 찾아보세요`}
                     />
-                    <div className="circle_main">
-                        <div className="circle_slider">
-                            <div className="circle_slides">
+                    <div className='circle_main'>
+                        <div className='circle_slider'>
+                            <div className='circle_slides'>
                                 {items.map((slide, index) => {
                                     const position = getSlidePosition(index);
                                     const isCenter = position === 0;
@@ -148,8 +148,8 @@ const SlideCircle = ({ showDot }) => {
                                         position < 0
                                             ? 0
                                             : Math.abs(position) <= 1
-                                            ? 1 - Math.abs(position) * 0.5
-                                            : 0;
+                                              ? 1 - Math.abs(position) * 0.5
+                                              : 0;
                                     //컬러선택 이름변경
                                     // const selectedColor =
                                     //     (selectedColorNames.length > 0 &&
@@ -170,35 +170,33 @@ const SlideCircle = ({ showDot }) => {
                                                 position: 'absolute',
                                                 left: `${55 + position * 45}%`,
                                                 transform: 'translateX(-50%)',
-                                            }}
-                                        >
-                                            <div className="item">
+                                            }}>
+                                            <div className='item'>
                                                 <div
-                                                    className="goods_wrap"
-                                                    style={{ color: slide.color }}
-                                                >
-                                                    <div className="goods_pic crocs">
+                                                    className='goods_wrap'
+                                                    style={{ color: slide.color }}>
+                                                    <div className='goods_pic crocs'>
                                                         <a href={slide.link}>
                                                             <img
                                                                 src={slide.product_img[0].replace(
                                                                     'images/',
-                                                                    '../images/'
+                                                                    '../images/',
                                                                 )}
                                                                 alt={slide.product}
                                                             />
                                                         </a>
                                                     </div>
-                                                    <div className="goods_txt">
+                                                    <div className='goods_txt'>
                                                         <span>{slide.cate}</span>
                                                         <strong>
                                                             {slide.product}
                                                             <br />
                                                         </strong>
                                                         {/* 컬러설정 */}
-                                                        <div className="s_color">
+                                                        <div className='s_color'>
                                                             {/* 신발컬러 선택 */}
-                                                            <div className="swatches">
-                                                                <ul className="swatches_list">
+                                                            <div className='swatches'>
+                                                                <ul className='swatches_list'>
                                                                     {Array.isArray(slide.color) &&
                                                                         slide.color.map(
                                                                             (color, i) => (
@@ -217,27 +215,25 @@ const SlideCircle = ({ showDot }) => {
                                                                                     onClick={() =>
                                                                                         changeColor(
                                                                                             index,
-                                                                                            color
+                                                                                            color,
                                                                                         )
-                                                                                    }
-                                                                                ></li>
-                                                                            )
+                                                                                    }></li>
+                                                                            ),
                                                                         )}
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                         <Link
                                                             to={`/product/${slide.id}`}
-                                                            className="btn middle arrow"
+                                                            className='btn middle arrow'
                                                             style={{
                                                                 '--selectedColor':
                                                                     selectedColor || '#444444',
                                                             }}
                                                             onClick={() =>
                                                                 onOpenProductMore(slide.id)
-                                                            }
-                                                        >
-                                                            <span className="btn-read">
+                                                            }>
+                                                            <span className='btn-read'>
                                                                 READ MORE
                                                             </span>
                                                         </Link>
@@ -246,17 +242,15 @@ const SlideCircle = ({ showDot }) => {
                                             </div>
                                             {/* Navigation */}
                                             {isCenter && (
-                                                <div className="slide_btns">
+                                                <div className='slide_btns'>
                                                     <button
                                                         onClick={prevSlide}
-                                                        className="prev_btn"
-                                                    >
+                                                        className='prev_btn'>
                                                         <p>Prev</p>
                                                     </button>
                                                     <button
                                                         onClick={nextSlide}
-                                                        className="next_btn"
-                                                    >
+                                                        className='next_btn'>
                                                         <p>Next</p>
                                                     </button>
                                                 </div>
@@ -268,7 +262,7 @@ const SlideCircle = ({ showDot }) => {
 
                             {/* Dots */}
                             {showDot && (
-                                <div className="circle_dots">
+                                <div className='circle_dots'>
                                     {visibleDots.map((_, i) => {
                                         const realIndex = startIndex + i; // 실제 인덱스
 
@@ -278,8 +272,7 @@ const SlideCircle = ({ showDot }) => {
                                                 onClick={() => goToSlide(realIndex)}
                                                 className={`circle_dot ${
                                                     currentSlide === realIndex ? 'active' : ''
-                                                }`}
-                                            >
+                                                }`}>
                                                 <span></span>
                                                 {currentSlide === realIndex && (
                                                     <div
@@ -287,15 +280,14 @@ const SlideCircle = ({ showDot }) => {
                                                             currentSlide === realIndex
                                                                 ? 'active'
                                                                 : ''
-                                                        }`}
-                                                    >
-                                                        <div className="inner"></div>
-                                                        <div className="circle">
-                                                            <div className="bar left">
-                                                                <div className="progress"></div>
+                                                        }`}>
+                                                        <div className='inner'></div>
+                                                        <div className='circle'>
+                                                            <div className='bar left'>
+                                                                <div className='progress'></div>
                                                             </div>
-                                                            <div className="bar right">
-                                                                <div className="progress"></div>
+                                                            <div className='bar right'>
+                                                                <div className='progress'></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -309,16 +301,15 @@ const SlideCircle = ({ showDot }) => {
                             <button
                                 onClick={togglePlay}
                                 className={`goods_btn start ${isPlaying ? '' : 'stop'}`}
-                                style={{ transform: `translateY(${items.length * 25}px)` }}
-                            >
-                                <span className="bnt_bg"></span>
-                                <span className="blind">정지 시작 버튼</span>
+                                style={{ transform: `translateY(${items.length * 25}px)` }}>
+                                <span className='bnt_bg'></span>
+                                <span className='blind'>정지 시작 버튼</span>
                             </button>
 
                             {/* Scroll Indicator */}
-                            <div className="goods_scroll">
-                                <Link to="#page">
-                                    <span className="blind">이동</span>
+                            <div className='goods_scroll'>
+                                <Link to='#page'>
+                                    <span className='blind'>이동</span>
                                 </Link>
                             </div>
                         </div>

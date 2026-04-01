@@ -14,15 +14,14 @@ const PolicyPopup = () => {
     if (!popUp.show) return null;
 
     return (
-        <div className="policy_popup_bg">
-            <div className="policy_popup_textbox">
-                <button className="policy_popup_close" onClick={hidePopup}>
-                    ✕
-                    {/* <img src="/images/close_btn.svg" alt="close_btn" /> */}
+        <div className='policy_popup_bg'>
+            <div className='policy_popup_textbox'>
+                <button className='policy_popup_close' onClick={hidePopup}>
+                    ✕{/* <img src="/images/close_btn.svg" alt="close_btn" /> */}
                 </button>
-                <div className="policy_popup_scroll">
+                <div className='policy_popup_scroll'>
                     <div>(필수) 이용약관 동의</div>
-                    <div className="terms_text">
+                    <div className='terms_text'>
                         [제1조]&nbsp;목적
                         <br />본 약관은 ㈜브랜드웍스코리아(이하&nbsp;“회사”라 함)가 운영하는 레고트
                         공식 온라인스토어(이하&nbsp;“사이트”)에서 제공하는 인터넷 관련

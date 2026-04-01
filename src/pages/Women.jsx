@@ -59,10 +59,10 @@ const Women = () => {
 
     return (
         <main>
-            <div className="section__wrap">
+            <div className='section__wrap'>
                 <LeftNavigation
-                    category="여성"
-                    subcategory="털안감 라인드 클로그"
+                    category='여성'
+                    subcategory='털안감 라인드 클로그'
                     sizes={sizes}
                     filters={filters}
                 />

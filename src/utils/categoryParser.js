@@ -31,7 +31,7 @@ export const parseCategoryTags = (item) => {
                     return map[tag] || tag;
                 })
                 .flat()
-                .filter(Boolean)
+                .filter(Boolean),
         ),
     ];
 

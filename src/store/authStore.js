@@ -7,6 +7,6 @@ export const collaboAuthStore = create((set, get) => ({
     jibbitzItems: jibbitzAll,
     disneyItems: jibbitzAll.filter(
         (item) =>
-            (item.title.includes('디즈니') || item.title.includes('동물')) && item.price !== ''
+            (item.title.includes('디즈니') || item.title.includes('동물')) && item.price !== '',
     ),
 }));

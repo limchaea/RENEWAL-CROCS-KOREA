@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 export const wishListStore = create(
     persist(
@@ -11,28 +11,28 @@ export const wishListStore = create(
             // 위시 저장 완료 팝업
             popUp: {
                 show: false,
-                message: "",
+                message: '',
             },
 
             // 위시리스트 저장 메서드
             onAddWishList: (product) => {
-                console.log("선택상품 들어왔나?:", product);
+                console.log('선택상품 들어왔나?:', product);
                 const wish = get().wishLists;
                 const existing = wish.find((item) => item.id === product.id);
                 if (existing) {
-                    set({ popUp: { show: true, message: "이미 위시리스트에 담긴 상품입니다 💚" } });
+                    set({ popUp: { show: true, message: '이미 위시리스트에 담긴 상품입니다 💚' } });
                     return false;
                 }
                 set({
                     wishLists: [...wish, product],
-                    popUp: { show: true, message: "위시리스트에 추가되었습니다! 💚" },
+                    popUp: { show: true, message: '위시리스트에 추가되었습니다! 💚' },
                 });
-                console.log("wishLists에 담긴 것 확인:", get().wishLists);
+                console.log('wishLists에 담긴 것 확인:', get().wishLists);
                 return true;
             },
 
             // 위시 추가 팝업창 끄기
-            hidePopup: () => set({ popUp: { show: false, message: "" } }),
+            hidePopup: () => set({ popUp: { show: false, message: '' } }),
 
             // ======== 위시리스트 데이터 삭제 ========
 
@@ -51,19 +51,19 @@ export const wishListStore = create(
                     //없으면 추가
                     const newRemoveWish = [...currentWish, item];
                     set({ removeWish: newRemoveWish });
-                    console.log("newRemoveWish체크박스 체크했을 때:", newRemoveWish);
+                    console.log('newRemoveWish체크박스 체크했을 때:', newRemoveWish);
                 }
             },
 
             onRemoveWish: () => {
-                console.log("위시삭제");
+                console.log('위시삭제');
                 const removeWish = get().removeWish;
-                console.log("removeWish 선택된 위시:", removeWish);
+                console.log('removeWish 선택된 위시:', removeWish);
                 const wishLists = get().wishLists;
-                console.log("wishLists 전체위시:", wishLists);
+                console.log('wishLists 전체위시:', wishLists);
 
                 const updateWishLists = wishLists.filter(
-                    (wish) => !removeWish.some((r) => r.id === wish.id)
+                    (wish) => !removeWish.some((r) => r.id === wish.id),
                 );
 
                 set({ wishLists: updateWishLists, removeWish: [] });
@@ -82,11 +82,11 @@ export const wishListStore = create(
                 // 현재 장바구니 목록
                 const cartWishItems = get().cartWishItems;
 
-                console.log("장바구니 추가 버튼:", { removeWish, wishLists, cartWishItems });
+                console.log('장바구니 추가 버튼:', { removeWish, wishLists, cartWishItems });
 
                 // 위시리스트에서 선택된 항목 제거
                 const newWishLists = wishLists.filter(
-                    (wish) => !removeWish.some((r) => r.id === wish.id)
+                    (wish) => !removeWish.some((r) => r.id === wish.id),
                 );
 
                 // 장바구니에 선택된 항목 추가
@@ -102,7 +102,7 @@ export const wishListStore = create(
                     }
                 });
 
-                console.log("새로운 cartWishItems:", newcartWishItems);
+                console.log('새로운 cartWishItems:', newcartWishItems);
 
                 // 상태 업데이트
                 set({
@@ -110,7 +110,7 @@ export const wishListStore = create(
                     cartWishItems: newcartWishItems,
                     cartCount: newcartWishItems.length,
                     removeWish: [], // 체크 초기화
-                    popUp: { show: true, message: "장바구니에 추가되었습니다! 🛒" },
+                    popUp: { show: true, message: '장바구니에 추가되었습니다! 🛒' },
                 });
             },
 
@@ -119,7 +119,7 @@ export const wishListStore = create(
 
             // 상품 상세에서 장바구니 담기 메서드
             onProductAddCart: (product, count = 1) => {
-                console.log("onProductAddCart 호출:", { product, count });
+                console.log('onProductAddCart 호출:', { product, count });
 
                 const cartItems = get().cartItems;
                 const existing = cartItems.find((item) => item.id === product.id);
@@ -128,34 +128,34 @@ export const wishListStore = create(
                 if (existing) {
                     // 이미 있으면 수량 증가
                     updated = cartItems.map((item) =>
-                        item.id === product.id ? { ...item, count: item.count + count } : item
+                        item.id === product.id ? { ...item, count: item.count + count } : item,
                     );
-                    console.log("기존 상품 수량 증가");
+                    console.log('기존 상품 수량 증가');
                 } else {
                     // 새로운 상품 추가
                     updated = [...cartItems, { ...product, count }];
-                    console.log("새 상품 추가");
+                    console.log('새 상품 추가');
                 }
 
-                console.log("업데이트된 cartItems:", updated);
+                console.log('업데이트된 cartItems:', updated);
 
                 set({
                     cartItems: updated,
                     cartCount: updated.reduce((sum, item) => sum + item.count, 0),
-                    popUp: { show: true, message: "장바구니에 담겼습니다!" },
+                    popUp: { show: true, message: '장바구니에 담겼습니다!' },
                 });
 
                 return true;
             },
         }),
         {
-            name: "wishlist-storage",
+            name: 'wishlist-storage',
             partialize: (state) => ({
                 wishLists: state.wishLists,
                 cartWishItems: state.cartWishItems,
                 cartItems: state.cartItems,
                 cartCount: state.cartCount,
             }),
-        }
-    )
+        },
+    ),
 );

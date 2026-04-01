@@ -137,7 +137,7 @@ const OrderForm = forwardRef((props, ref) => {
         if (!date) return '';
         const d = date.toDate ? date.toDate() : new Date(date);
         return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(
-            d.getDate()
+            d.getDate(),
         ).padStart(2, '0')}`;
     };
 
@@ -313,59 +313,58 @@ const OrderForm = forwardRef((props, ref) => {
     };
 
     return (
-        <div className="order-form">
+        <div className='order-form'>
             {/* 주문자 정보 */}
-            <div className="form-section">
-                <h2 className="section-title">주문자 정보</h2>
+            <div className='form-section'>
+                <h2 className='section-title'>주문자 정보</h2>
 
-                <div className="form-group">
-                    <div className="label-row">
-                        <label className="form-label required">주문자</label>
-                        <p className="mandatory">
+                <div className='form-group'>
+                    <div className='label-row'>
+                        <label className='form-label required'>주문자</label>
+                        <p className='mandatory'>
                             <span>* </span>표시 입력은 의무사항 입니다.
                         </p>
                     </div>
                     <input
-                        type="text"
-                        className="form-input"
-                        placeholder="이름을 입력하세요"
+                        type='text'
+                        className='form-input'
+                        placeholder='이름을 입력하세요'
                         value={ordererName}
                         onChange={(e) => setOrdererName(e.target.value)}
                     />
                 </div>
 
-                <div className="form-group">
-                    <label className="form-label required">이메일</label>
-                    <div className="email-input-group">
+                <div className='form-group'>
+                    <label className='form-label required'>이메일</label>
+                    <div className='email-input-group'>
                         <input
-                            type="text"
-                            className="form-input email-local"
-                            placeholder="이메일"
+                            type='text'
+                            className='form-input email-local'
+                            placeholder='이메일'
                             value={emailLocal}
                             onChange={(e) => setEmailLocal(e.target.value)}
                         />
-                        <span className="email-separator">@</span>
+                        <span className='email-separator'>@</span>
                         {emailDomain === '직접입력' ? (
                             <input
-                                type="text"
-                                className="form-input email-domain"
-                                placeholder="도메인 입력"
+                                type='text'
+                                className='form-input email-domain'
+                                placeholder='도메인 입력'
                                 value={customEmailDomain}
                                 onChange={(e) => setCustomEmailDomain(e.target.value)}
                             />
                         ) : (
                             <input
-                                type="text"
-                                className="form-input email-domain"
+                                type='text'
+                                className='form-input email-domain'
                                 value={emailDomain}
                                 readOnly
                             />
                         )}
                         <select
-                            className="form-select email-select"
+                            className='form-select email-select'
                             value={emailDomain}
-                            onChange={(e) => setEmailDomain(e.target.value)}
-                        >
+                            onChange={(e) => setEmailDomain(e.target.value)}>
                             {emailDomains.map((domain) => (
                                 <option key={domain} value={domain}>
                                     {domain}
@@ -375,32 +374,32 @@ const OrderForm = forwardRef((props, ref) => {
                     </div>
                 </div>
 
-                <div className="form-group">
-                    <label className="form-label required">휴대전화</label>
-                    <div className="phone-input-group">
+                <div className='form-group'>
+                    <label className='form-label required'>휴대전화</label>
+                    <div className='phone-input-group'>
                         <input
-                            type="text"
-                            className="form-input phone-input"
-                            placeholder="010"
-                            maxLength="3"
+                            type='text'
+                            className='form-input phone-input'
+                            placeholder='010'
+                            maxLength='3'
                             value={phone1}
                             onChange={(e) => setPhone1(e.target.value.replace(/[^0-9]/g, ''))}
                         />
-                        <span className="phone-separator">-</span>
+                        <span className='phone-separator'>-</span>
                         <input
-                            type="text"
-                            className="form-input phone-input"
-                            placeholder="1234"
-                            maxLength="4"
+                            type='text'
+                            className='form-input phone-input'
+                            placeholder='1234'
+                            maxLength='4'
                             value={phone2}
                             onChange={(e) => setPhone2(e.target.value.replace(/[^0-9]/g, ''))}
                         />
-                        <span className="phone-separator">-</span>
+                        <span className='phone-separator'>-</span>
                         <input
-                            type="text"
-                            className="form-input phone-input"
-                            placeholder="5678"
-                            maxLength="4"
+                            type='text'
+                            className='form-input phone-input'
+                            placeholder='5678'
+                            maxLength='4'
                             value={phone3}
                             onChange={(e) => setPhone3(e.target.value.replace(/[^0-9]/g, ''))}
                         />
@@ -409,108 +408,107 @@ const OrderForm = forwardRef((props, ref) => {
             </div>
 
             {/* 배송지 정보 */}
-            <div className="form-section">
-                <h2 className="section-title">배송지 정보</h2>
+            <div className='form-section'>
+                <h2 className='section-title'>배송지 정보</h2>
 
-                <div className="delivery-type-group">
-                    <label className="radio-label">
+                <div className='delivery-type-group'>
+                    <label className='radio-label'>
                         <input
-                            type="radio"
-                            name="deliveryType"
-                            value="same"
+                            type='radio'
+                            name='deliveryType'
+                            value='same'
                             checked={deliveryType === 'same'}
                             onChange={handleDeliveryTypeChange}
                         />
-                        <span className="radio-text">주문자정보와 동일</span>
+                        <span className='radio-text'>주문자정보와 동일</span>
                     </label>
-                    <label className="radio-label">
+                    <label className='radio-label'>
                         <input
-                            type="radio"
-                            name="deliveryType"
-                            value="new"
+                            type='radio'
+                            name='deliveryType'
+                            value='new'
                             checked={deliveryType === 'new'}
                             onChange={handleDeliveryTypeChange}
                         />
-                        <span className="radio-text">새로운 배송지</span>
+                        <span className='radio-text'>새로운 배송지</span>
                     </label>
                 </div>
 
-                <div className="form-group">
-                    <label className="form-label required">받는사람</label>
+                <div className='form-group'>
+                    <label className='form-label required'>받는사람</label>
                     <input
-                        type="text"
-                        className="form-input"
-                        placeholder="받는 분 이름"
+                        type='text'
+                        className='form-input'
+                        placeholder='받는 분 이름'
                         value={receiverName}
                         onChange={(e) => setReceiverName(e.target.value)}
                     />
                 </div>
 
-                <div className="form-group">
-                    <label className="form-label required">주소</label>
-                    <div className="address-input-group">
+                <div className='form-group'>
+                    <label className='form-label required'>주소</label>
+                    <div className='address-input-group'>
                         <input
-                            type="text"
-                            className="form-input postcode-input"
-                            placeholder="우편번호"
+                            type='text'
+                            className='form-input postcode-input'
+                            placeholder='우편번호'
                             value={postcode}
                             readOnly
                         />
                         <button
-                            type="button"
-                            className="btn-postcode"
-                            onClick={handlePostcodeSearch}
-                        >
+                            type='button'
+                            className='btn-postcode'
+                            onClick={handlePostcodeSearch}>
                             주소검색
                         </button>
                     </div>
                     <input
-                        type="text"
-                        className="form-input address-input"
-                        placeholder="기본주소"
+                        type='text'
+                        className='form-input address-input'
+                        placeholder='기본주소'
                         value={address}
                         readOnly
                     />
                     <input
-                        type="text"
-                        className="form-input detail-address-input"
-                        placeholder="나머지 주소 (선택입력가능)"
+                        type='text'
+                        className='form-input detail-address-input'
+                        placeholder='나머지 주소 (선택입력가능)'
                         value={detailAddress}
                         onChange={(e) => setDetailAddress(e.target.value)}
                     />
-                    <p className="address-notice">나머지 주소는 선택입력입니다.</p>
+                    <p className='address-notice'>나머지 주소는 선택입력입니다.</p>
                 </div>
 
-                <div className="form-group">
-                    <label className="form-label required">휴대전화</label>
-                    <div className="phone-input-group">
+                <div className='form-group'>
+                    <label className='form-label required'>휴대전화</label>
+                    <div className='phone-input-group'>
                         <input
-                            type="text"
-                            className="form-input phone-input"
-                            placeholder="010"
-                            maxLength="3"
+                            type='text'
+                            className='form-input phone-input'
+                            placeholder='010'
+                            maxLength='3'
                             value={deliveryPhone1}
                             onChange={(e) =>
                                 setDeliveryPhone1(e.target.value.replace(/[^0-9]/g, ''))
                             }
                         />
-                        <span className="phone-separator">-</span>
+                        <span className='phone-separator'>-</span>
                         <input
-                            type="text"
-                            className="form-input phone-input"
-                            placeholder="1234"
-                            maxLength="4"
+                            type='text'
+                            className='form-input phone-input'
+                            placeholder='1234'
+                            maxLength='4'
                             value={deliveryPhone2}
                             onChange={(e) =>
                                 setDeliveryPhone2(e.target.value.replace(/[^0-9]/g, ''))
                             }
                         />
-                        <span className="phone-separator">-</span>
+                        <span className='phone-separator'>-</span>
                         <input
-                            type="text"
-                            className="form-input phone-input"
-                            placeholder="5678"
-                            maxLength="4"
+                            type='text'
+                            className='form-input phone-input'
+                            placeholder='5678'
+                            maxLength='4'
                             value={deliveryPhone3}
                             onChange={(e) =>
                                 setDeliveryPhone3(e.target.value.replace(/[^0-9]/g, ''))
@@ -522,19 +520,19 @@ const OrderForm = forwardRef((props, ref) => {
 
             {/* 비회원 주문 비밀번호 - 로그인 시 숨김 */}
             {!user && (
-                <div className="form-section">
-                    <h2 className="section-title">비회원 주문 비밀번호</h2>
-                    <p className="section-description">
+                <div className='form-section'>
+                    <h2 className='section-title'>비회원 주문 비밀번호</h2>
+                    <p className='section-description'>
                         주문조회 시 필요합니다. (영문대소문자구분/숫자/특수문자 중 2가지 이상 조합,
                         8자~16자)
                     </p>
 
-                    <div className="form-group">
-                        <label className="form-label required">비밀번호</label>
+                    <div className='form-group'>
+                        <label className='form-label required'>비밀번호</label>
                         <input
-                            type="password"
-                            className="form-input"
-                            placeholder="비밀번호 입력"
+                            type='password'
+                            className='form-input'
+                            placeholder='비밀번호 입력'
                             value={password}
                             onChange={handlePasswordChange}
                         />
@@ -542,8 +540,7 @@ const OrderForm = forwardRef((props, ref) => {
                             <p
                                 className={`password-message ${
                                     passwordValid ? 'valid' : 'invalid'
-                                }`}
-                            >
+                                }`}>
                                 {passwordValid
                                     ? '✓ 사용가능한 비밀번호입니다.'
                                     : '✗ 사용할 수 없는 비밀번호입니다.'}
@@ -551,12 +548,12 @@ const OrderForm = forwardRef((props, ref) => {
                         )}
                     </div>
 
-                    <div className="form-group">
-                        <label className="form-label required">비밀번호 확인</label>
+                    <div className='form-group'>
+                        <label className='form-label required'>비밀번호 확인</label>
                         <input
-                            type="password"
-                            className="form-input"
-                            placeholder="비밀번호 재입력"
+                            type='password'
+                            className='form-input'
+                            placeholder='비밀번호 재입력'
                             value={passwordConfirm}
                             onChange={handlePasswordConfirmChange}
                         />
@@ -564,8 +561,7 @@ const OrderForm = forwardRef((props, ref) => {
                             <p
                                 className={`password-message ${
                                     passwordMatch ? 'valid' : 'invalid'
-                                }`}
-                            >
+                                }`}>
                                 {passwordMatch
                                     ? '✓ 비밀번호가 일치합니다.'
                                     : '✗ 비밀번호가 일치하지 않습니다.'}
@@ -577,40 +573,38 @@ const OrderForm = forwardRef((props, ref) => {
 
             {/* 쿠폰 섹션 - 로그인 사용자만 표시 */}
             {user && (
-                <div className="form-section">
-                    <h2 className="section-title">쿠폰/할인</h2>
+                <div className='form-section'>
+                    <h2 className='section-title'>쿠폰/할인</h2>
 
                     {availableCoupons.length > 0 ? (
                         <>
-                            <div className="coupon-section">
+                            <div className='coupon-section'>
                                 <button
-                                    type="button"
-                                    className="coupon-select-btn"
-                                    onClick={() => setShowCouponModal(true)}
-                                >
+                                    type='button'
+                                    className='coupon-select-btn'
+                                    onClick={() => setShowCouponModal(true)}>
                                     {selectedCoupon
                                         ? `${selectedCoupon.name} 적용됨`
                                         : `사용 가능한 쿠폰 ${availableCoupons.length}개`}
                                 </button>
 
                                 {selectedCoupon && (
-                                    <div className="selected-coupon">
-                                        <div className="coupon-info">
-                                            <span className="coupon-name">
+                                    <div className='selected-coupon'>
+                                        <div className='coupon-info'>
+                                            <span className='coupon-name'>
                                                 {selectedCoupon.name}
                                             </span>
-                                            <span className="coupon-discount">
+                                            <span className='coupon-discount'>
                                                 -{discountAmount.toLocaleString()}원
                                             </span>
                                         </div>
                                         <button
-                                            type="button"
-                                            className="cancel-btn"
+                                            type='button'
+                                            className='cancel-btn'
                                             onClick={() => {
                                                 setSelectedCoupon(null);
                                                 onSelectCoupon(null);
-                                            }}
-                                        >
+                                            }}>
                                             ✕
                                         </button>
                                     </div>
@@ -619,9 +613,9 @@ const OrderForm = forwardRef((props, ref) => {
 
                             {/* 할인 금액 표시 - 쿠폰 선택 시에만 */}
                             {selectedCoupon && (
-                                <div className="discount-amount">
-                                    <span className="discount-label">할인 적용 금액</span>
-                                    <span className="discount-value">
+                                <div className='discount-amount'>
+                                    <span className='discount-label'>할인 적용 금액</span>
+                                    <span className='discount-value'>
                                         {discountAmount > 0
                                             ? `-${discountAmount.toLocaleString()}원`
                                             : '계산 중...'}
@@ -630,25 +624,25 @@ const OrderForm = forwardRef((props, ref) => {
                             )}
                         </>
                     ) : (
-                        <p className="no-coupon-message">사용 가능한 쿠폰이 없습니다.</p>
+                        <p className='no-coupon-message'>사용 가능한 쿠폰이 없습니다.</p>
                     )}
                 </div>
             )}
 
             {/* 쿠폰 선택 모달 */}
             {showCouponModal && (
-                <div className="coupon-modal" onClick={() => setShowCouponModal(false)}>
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                        <div className="modal-header">
+                <div className='coupon-modal' onClick={() => setShowCouponModal(false)}>
+                    <div className='modal-content' onClick={(e) => e.stopPropagation()}>
+                        <div className='modal-header'>
                             <h3>쿠폰 선택</h3>
-                            <button className="close-btn" onClick={() => setShowCouponModal(false)}>
+                            <button className='close-btn' onClick={() => setShowCouponModal(false)}>
                                 ✕
                             </button>
                         </div>
 
-                        <div className="coupon-list">
+                        <div className='coupon-list'>
                             {availableCoupons.length === 0 ? (
-                                <p className="no-coupon">사용 가능한 쿠폰이 없습니다.</p>
+                                <p className='no-coupon'>사용 가능한 쿠폰이 없습니다.</p>
                             ) : (
                                 availableCoupons.map((coupon) => {
                                     return (
@@ -657,23 +651,22 @@ const OrderForm = forwardRef((props, ref) => {
                                             className={`coupon-item ${
                                                 selectedCoupon?.id === coupon.id ? 'selected' : ''
                                             }`}
-                                            onClick={() => handleCouponSelect(coupon)}
-                                        >
-                                            <div className="coupon-badge">
-                                                <span className="discount-value">
+                                            onClick={() => handleCouponSelect(coupon)}>
+                                            <div className='coupon-badge'>
+                                                <span className='discount-value'>
                                                     {coupon.discount}
                                                     {coupon.type === 'percentage' ? '%' : '원'}
                                                 </span>
                                             </div>
-                                            <div className="coupon-details">
+                                            <div className='coupon-details'>
                                                 <h4>{coupon.name}</h4>
-                                                <p className="coupon-code">코드: {coupon.code}</p>
-                                                <p className="expire-date">
+                                                <p className='coupon-code'>코드: {coupon.code}</p>
+                                                <p className='expire-date'>
                                                     유효기간: {formatDate(coupon.expiresAt)}까지
                                                 </p>
                                             </div>
                                             {selectedCoupon?.id === coupon.id && (
-                                                <span className="check-mark">✓</span>
+                                                <span className='check-mark'>✓</span>
                                             )}
                                         </div>
                                     );
@@ -685,53 +678,51 @@ const OrderForm = forwardRef((props, ref) => {
             )}
 
             {/* 결제수단 */}
-            <div className="form-section">
-                <h2 className="section-title">결제수단</h2>
+            <div className='form-section'>
+                <h2 className='section-title'>결제수단</h2>
 
-                <div className="payment-methods">
+                <div className='payment-methods'>
                     <button
-                        type="button"
+                        type='button'
                         className={`payment-btn ${paymentMethod === 'card' ? 'active' : ''}`}
-                        onClick={() => setPaymentMethod('card')}
-                    >
+                        onClick={() => setPaymentMethod('card')}>
                         신용카드
                     </button>
                     <button
-                        type="button"
+                        type='button'
                         className={`payment-btn ${paymentMethod === 'bank' ? 'active' : ''}`}
-                        onClick={() => setPaymentMethod('bank')}
-                    >
+                        onClick={() => setPaymentMethod('bank')}>
                         무통장입금
                     </button>
                 </div>
-                <p className="payment-notice">
+                <p className='payment-notice'>
                     소액결제의 경우 PG사 정책에 따라 결제금액 제한이 있을 수 있습니다.
                 </p>
             </div>
 
             {/* 개인정보 수집 및 이용 동의 */}
-            <div className="form-section">
-                <div className="terms-agreement">
-                    <label className="checkbox-label">
+            <div className='form-section'>
+                <div className='terms-agreement'>
+                    <label className='checkbox-label'>
                         <input
-                            type="checkbox"
+                            type='checkbox'
                             checked={agreeTerms}
                             onChange={(e) => setAgreeTerms(e.target.checked)}
                         />
-                        <span className="checkbox-text">
+                        <span className='checkbox-text'>
                             개인정보의 수집 및 이용에 대해 동의합니다.
                         </span>
                     </label>
 
-                    <div className="terms-content">
-                        <p className="terms-description">
+                    <div className='terms-content'>
+                        <p className='terms-description'>
                             크록스코리아 주식회사는 아래와 같이 개인정보를 수집 및 이용합니다.
                             <br />
                             귀하는 아래와 같은 개인정보의 수집·이용에 동의하지 않으실 수 있으나, 이
                             경우 제품의 주문, 결제 및 배송이 불가능합니다.
                         </p>
 
-                        <table className="terms-table">
+                        <table className='terms-table'>
                             <tbody>
                                 <tr>
                                     <th>수집항목</th>

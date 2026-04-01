@@ -90,24 +90,24 @@ function CustomerService({ onClose }) {
 
     // ⭐ 여기서 return 시작해야 함 (중복 중괄호 제거)
     return (
-        <div className="cs-container">
-            <div className="main-title">
-                <Title title="Customer Service" />
+        <div className='cs-container'>
+            <div className='main-title'>
+                <Title title='Customer Service' />
             </div>
-            <div className="cs-content">
+            <div className='cs-content'>
                 {/* 왼쪽 안내 영역 */}
-                <div className="cs-left">
-                    <div className="cs-info-box">
-                        <h2 className="info-title">이메일 문의</h2>
-                        <p className="info-description">
+                <div className='cs-left'>
+                    <div className='cs-info-box'>
+                        <h2 className='info-title'>이메일 문의</h2>
+                        <p className='info-description'>
                             크록스 코리아 고객센터에 오신 것을 환영합니다.
                             <br />
                             문의하신 내용은 영업일 기준 24시간 이내에 답변드립니다.
                         </p>
 
-                        <div className="info-section">
-                            <h3 className="section-subtitle">운영 시간</h3>
-                            <p className="section-text">
+                        <div className='info-section'>
+                            <h3 className='section-subtitle'>운영 시간</h3>
+                            <p className='section-text'>
                                 평일: 오전 9시 - 오후 6시
                                 <br />
                                 주말 및 공휴일 휴무
@@ -125,9 +125,9 @@ function CustomerService({ onClose }) {
                             </ul>
                         </div> */}
 
-                        <div className="info-section">
-                            <h3 className="section-subtitle">연락처</h3>
-                            <p className="section-text">
+                        <div className='info-section'>
+                            <h3 className='section-subtitle'>연락처</h3>
+                            <p className='section-text'>
                                 전화: 1661-0677
                                 <br />
                                 이메일: support@crocs.co.kr
@@ -137,110 +137,109 @@ function CustomerService({ onClose }) {
                 </div>
 
                 {/* 오른쪽 폼 영역 */}
-                <div className="cs-right">
+                <div className='cs-right'>
                     {!isSubmitted ? (
-                        <form className="cs-form" onSubmit={handleSubmit}>
-                            <div className="form-group">
-                                <label className="form-label required">이름</label>
+                        <form className='cs-form' onSubmit={handleSubmit}>
+                            <div className='form-group'>
+                                <label className='form-label required'>이름</label>
                                 <input
-                                    type="text"
-                                    name="name"
-                                    className="form-input"
-                                    placeholder="이름을 입력해주세요"
+                                    type='text'
+                                    name='name'
+                                    className='form-input'
+                                    placeholder='이름을 입력해주세요'
                                     value={formData.name}
                                     onChange={handleChange}
                                 />
                             </div>
 
-                            <div className="form-group">
-                                <label className="form-label">연락처</label>
+                            <div className='form-group'>
+                                <label className='form-label'>연락처</label>
                                 <input
-                                    type="tel"
-                                    name="phone"
-                                    className="form-input"
-                                    placeholder="핸드폰 번호 (선택사항)"
+                                    type='tel'
+                                    name='phone'
+                                    className='form-input'
+                                    placeholder='핸드폰 번호 (선택사항)'
                                     value={formData.phone}
                                     onChange={handleChange}
                                 />
                             </div>
 
-                            <div className="form-group">
-                                <label className="form-label required">이메일</label>
+                            <div className='form-group'>
+                                <label className='form-label required'>이메일</label>
                                 <input
-                                    type="email"
-                                    name="email"
-                                    className="form-input"
-                                    placeholder="example@email.com"
+                                    type='email'
+                                    name='email'
+                                    className='form-input'
+                                    placeholder='example@email.com'
                                     value={formData.email}
                                     onChange={handleChange}
                                 />
                             </div>
 
-                            <div className="form-group">
-                                <label className="form-label required">제목</label>
+                            <div className='form-group'>
+                                <label className='form-label required'>제목</label>
                                 <input
-                                    type="text"
-                                    name="subject"
-                                    className="form-input"
-                                    placeholder="문의 제목을 입력해주세요"
+                                    type='text'
+                                    name='subject'
+                                    className='form-input'
+                                    placeholder='문의 제목을 입력해주세요'
                                     value={formData.subject}
                                     onChange={handleChange}
                                 />
                             </div>
 
-                            <div className="form-group">
-                                <label className="form-label required">문의 내용</label>
+                            <div className='form-group'>
+                                <label className='form-label required'>문의 내용</label>
                                 <textarea
-                                    name="message"
-                                    className="form-textarea"
-                                    placeholder="문의하실 내용을 자세히 작성해주세요"
-                                    rows="8"
+                                    name='message'
+                                    className='form-textarea'
+                                    placeholder='문의하실 내용을 자세히 작성해주세요'
+                                    rows='8'
                                     value={formData.message}
-                                    onChange={handleChange}
-                                ></textarea>
+                                    onChange={handleChange}></textarea>
                             </div>
 
-                            <p className="form-notice">
-                                <span className="required-mark">*</span> 필수 입력 항목입니다.
+                            <p className='form-notice'>
+                                <span className='required-mark'>*</span> 필수 입력 항목입니다.
                             </p>
 
-                            <div className="privacy-agreement">
-                                <label className="privacy-label">
+                            <div className='privacy-agreement'>
+                                <label className='privacy-label'>
                                     <input
-                                        type="checkbox"
+                                        type='checkbox'
                                         checked={isAgreed}
                                         onChange={(e) => setIsAgreed(e.target.checked)}
                                     />
-                                    <span className="privacy-text">
+                                    <span className='privacy-text'>
                                         개인정보의 수집 및 이용에 대해 동의합니다.
                                     </span>
                                 </label>
-                                <div className="privacy-details">
-                                    <p className="privacy-item">
+                                <div className='privacy-details'>
+                                    <p className='privacy-item'>
                                         <strong>수집항목(필수)</strong>: 이름, 이메일 주소, 문의내용
                                         /<strong> 선택</strong>: 전화 번호
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="button-group">
-                                <button type="submit" className="btn-submit">
+                            <div className='button-group'>
+                                <button type='submit' className='btn-submit'>
                                     문의하기
                                 </button>
-                                <button type="button" className="btn-cancel" onClick={handleCancel}>
+                                <button type='button' className='btn-cancel' onClick={handleCancel}>
                                     취소하기
                                 </button>
                             </div>
                         </form>
                     ) : (
-                        <div className="submit-success">
-                            <div className="success-icon">✓</div>
-                            <h3 className="success-title">문의가 접수되었습니다!</h3>
-                            <p className="success-message">
+                        <div className='submit-success'>
+                            <div className='success-icon'>✓</div>
+                            <h3 className='success-title'>문의가 접수되었습니다!</h3>
+                            <p className='success-message'>
                                 빠른 시일 내에 답변드리겠습니다.
                                 <br />
                                 <br />
-                                <span className="redirect-notice">
+                                <span className='redirect-notice'>
                                     잠시 후 마이페이지로 이동합니다.
                                 </span>
                             </p>

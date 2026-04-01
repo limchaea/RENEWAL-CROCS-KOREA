@@ -75,7 +75,9 @@
             top: 50%;
             left: 55%;
             width: 500px;
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
             z-index: 500;
 
             button {
@@ -90,12 +92,16 @@
                 align-items: center;
                 justify-content: center;
                 user-select: none;
-                transition: transform 0.3s ease, opacity 0.3s ease;
+                transition:
+                    transform 0.3s ease,
+                    opacity 0.3s ease;
                 transform: translateY(-50%);
 
                 p {
                     margin: 0;
-                    transition: transform 0.3s ease, opacity 0.3s ease;
+                    transition:
+                        transform 0.3s ease,
+                        opacity 0.3s ease;
                     pointer-events: none;
                 }
 
@@ -107,7 +113,9 @@
                     width: 40px;
                     height: 1px;
                     background-color: rgb(51, 51, 51);
-                    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1), width 0.25s ease,
+                    transition:
+                        transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1),
+                        width 0.25s ease,
                         opacity 0.25s ease;
                     opacity: 1;
                     pointer-events: none;
@@ -147,7 +155,9 @@
                     &.slide_exit {
                         opacity: 0;
                         transform: rotate(-90deg) translateY(-5rem);
-                        transition: transform 0.8s ease, opacity 0.5s ease;
+                        transition:
+                            transform 0.8s ease,
+                            opacity 0.5s ease;
                     }
                 }
             }
@@ -163,20 +173,126 @@
             transition: transform 1s ease-in-out;
             transform: translateX(0);
             z-index: 600;
+            cursor: none;
+            user-select: none;
+            // padding: 12rem 20rem 0 12rem;
+            height: 120vh;
+            margin-top: -10vh;
+
+            * {
+                cursor: none !important;
+            }
 
             &.active {
-                // left: 0;
-                transform: translateX(-50%);
+                transform: translateX(-36%);
+            }
+
+            > .btn_wrap {
+                position: absolute;
+                top: 50%;
+                left: 0%;
+                width: 500px;
+                transition:
+                    opacity 0.3s ease,
+                    transform 0.3s ease;
+                z-index: 500;
+                cursor: pointer;
+
+                button {
+                    pointer-events: auto;
+                    position: absolute;
+                    font-size: 15px;
+                    font-weight: 600;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    user-select: none;
+                    transition:
+                        transform 0.3s ease,
+                        opacity 0.3s ease;
+                    transform: translateY(-50%);
+
+                    p {
+                        margin: 0;
+                        transition:
+                            transform 0.3s ease,
+                            opacity 0.3s ease;
+                        pointer-events: none;
+                    }
+
+                    &::before,
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: -12px;
+                        width: 40px;
+                        height: 1px;
+                        background-color: rgb(51, 51, 51);
+                        transition:
+                            transform 0.35s cubic-bezier(0.2, 0.9, 0.2, 1),
+                            width 0.25s ease,
+                            opacity 0.25s ease;
+                        opacity: 1;
+                        pointer-events: none;
+                    }
+
+                    /* 오른쪽 */
+                    &.monthly_btn {
+                        right: 50px;
+                        transform: rotate(90deg);
+                        transform-origin: center;
+
+                        &::before {
+                            left: 50%;
+                            transform-origin: left center;
+                        }
+                        &::after {
+                            right: 50%;
+                            transform-origin: right center;
+                        }
+
+                        /* hover 45도 회전 — 기존 효과 유지 */
+                        &:hover {
+                            p {
+                                transform: translateY(-6px);
+                                opacity: 0;
+                            }
+
+                            &::before {
+                                transform: rotate(45deg);
+                            }
+                            &::after {
+                                transform: rotate(-45deg);
+                            }
+                        }
+
+                        /* 슬라이드 이동 시 왼쪽으로 밀리며 사라지는 클래스 추가 */
+                        &.slide_exit {
+                            opacity: 0;
+                            transform: rotate(-90deg) translateY(-5rem);
+                            transition:
+                                transform 0.8s ease,
+                                opacity 0.5s ease;
+                        }
+                    }
+                }
             }
 
             .monthly_card_wrap {
                 @include g.flex($fw: wrap);
-                height: 100vh;
+                height: 120vh;
+                padding-top: 7.2rem;
+                overflow: hidden;
 
                 .monthly_card_list {
-                    @include g.flex($gap: 12rem);
+                    //   @include g.flex($gap: 12rem);
                     transition: transform 0.5s ease-in-out;
                     will-change: transform;
+                    padding-left: 16rem;
+                    // height: 100%;
 
                     &.slide-left {
                         transform: translateX(-50%);
@@ -184,11 +300,23 @@
                     &.slide-right {
                         transform: translateX(0);
                     }
+
+                    .swiper {
+                        width: 100%;
+                        overflow: visible !important;
+                        cursor: none !important;
+                    }
+
+                    .swiper-slide {
+                        width: 40rem !important; // 카드 너비 고정
+                        cursor: none !important;
+                    }
                 }
 
                 .monthly_card {
                     display: block;
                     position: relative;
+                    cursor: pointer !important;
 
                     .card_img {
                         position: relative;
@@ -240,12 +368,12 @@
                                 @include g.flex($gap: null);
                                 position: absolute;
                                 z-index: 700; // 이미지 위로
-                                // border: 0.5px solid #ccc;
                                 border-radius: 1rem;
                                 opacity: 0;
-                                // visibility: hidden;
                                 transform: translateY(10px);
-                                transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+                                transition:
+                                    opacity 0.3s ease-in-out,
+                                    transform 0.3s ease-in-out;
 
                                 .img_box {
                                     width: 15rem;
@@ -324,6 +452,21 @@
                         }
                     }
                 }
+            }
+
+            .drag_cursor {
+                position: fixed;
+                left: 0;
+                top: 0;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                z-index: 9999;
+                color: g.$mainColor;
+                font-size: 2.4rem;
+                font-weight: 700;
+                padding: 6px 12px;
+                will-change: transform;
+                mix-blend-mode: difference;
             }
         }
     }

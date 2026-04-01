@@ -4,7 +4,7 @@ const LoginNaver = () => {
     return (
         <div>
             <button>
-                <img src="/images/icon_naver.svg" alt="icon_naver" />
+                <img src='/images/icon_naver.svg' alt='icon_naver' />
             </button>
         </div>
     );
