@@ -187,7 +187,16 @@ const SlideCircle = ({ showDot }) => {
                                                         </a>
                                                     </div>
                                                     <div className='goods_txt'>
-                                                        <span>{slide.cate}</span>
+                                                        {/* <span>{slide.cate}</span> */}
+                                                        <div className='cate_tags'>
+                                                            {String(slide.cate)
+                                                                .split(',')
+                                                                .map((tag, i) => (
+                                                                    <span key={i}>
+                                                                        {tag.trim()}
+                                                                    </span>
+                                                                ))}
+                                                        </div>
                                                         <strong>
                                                             {slide.product}
                                                             <br />
