@@ -4,7 +4,7 @@ import { loginAuthStore } from '../store/loginStore';
 
 const GnbRight = ({ onSearchClick }) => {
     const navigate = useNavigate();
-    const { user, handleUserClick, logout } = loginAuthStore();
+    const { user, handleUserClick, onLogout } = loginAuthStore();
 
     return (
         <ul className='gnb_right'>
@@ -19,7 +19,7 @@ const GnbRight = ({ onSearchClick }) => {
                 </button>
                 {/* 로그인 상태이면 로그아웃 버튼 표시 */}
                 {user && (
-                    <button className='logout_btn' onClick={() => logout(navigate)}>
+                    <button className='logout_btn' onClick={() => onLogout(navigate)}>
                         <img src='/images/logout_icon.svg' alt='logout_icon' />
                     </button>
                 )}
